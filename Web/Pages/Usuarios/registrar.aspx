@@ -12,6 +12,7 @@
 <body>
     <div class="box-login">
         <form id="form1" runat="server" class="form-group">
+            <h2>Registro de Usuario</h2>
             <div class="form-group col-md-12">
                 <asp:Label ID="lblNombre" runat="server" AssociatedControlID="txtNombre">Nombre</asp:Label>
                 <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre" />
