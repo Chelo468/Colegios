@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ColegiosModelStoreContainer" CdmEntityContainer="ColegiosEntities">
+    <EntitySetMapping Name="Alumno_Curso">
+      <EntityTypeMapping TypeName="ColegiosModel.Alumno_Curso">
+        <MappingFragment StoreEntitySet="Alumno_Curso">
+          <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alumno_Examen">
+      <EntityTypeMapping TypeName="ColegiosModel.Alumno_Examen">
+        <MappingFragment StoreEntitySet="Alumno_Examen">
+          <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+          <ScalarProperty Name="id_examen" ColumnName="id_examen" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asistencia">
+      <EntityTypeMapping TypeName="ColegiosModel.Asistencia">
+        <MappingFragment StoreEntitySet="Asistencia">
+          <ScalarProperty Name="id_asistencia" ColumnName="id_asistencia" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+          <ScalarProperty Name="fecha_asistencia" ColumnName="fecha_asistencia" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aula">
+      <EntityTypeMapping TypeName="ColegiosModel.Aula">
+        <MappingFragment StoreEntitySet="Aula">
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="capacidad_alumnos" ColumnName="capacidad_alumnos" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Barrio">
+      <EntityTypeMapping TypeName="ColegiosModel.Barrio">
+        <MappingFragment StoreEntitySet="Barrio">
+          <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colegio">
+      <EntityTypeMapping TypeName="ColegiosModel.Colegio">
+        <MappingFragment StoreEntitySet="Colegio">
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="calle_nro" ColumnName="calle_nro" />
+          <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+          <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+          <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+          <ScalarProperty Name="id_plan" ColumnName="id_plan" />
+          <ScalarProperty Name="fecha_suscripcion" ColumnName="fecha_suscripcion" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colegio_Usuario">
+      <EntityTypeMapping TypeName="ColegiosModel.Colegio_Usuario">
+        <MappingFragment StoreEntitySet="Colegio_Usuario">
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacto_Colegio">
+      <EntityTypeMapping TypeName="ColegiosModel.Contacto_Colegio">
+        <MappingFragment StoreEntitySet="Contacto_Colegio">
+          <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="ColegiosModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="id_preceptor" ColumnName="id_preceptor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Asistencia">
+      <EntityTypeMapping TypeName="ColegiosModel.Estado_Asistencia">
+        <MappingFragment StoreEntitySet="Estado_Asistencia">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Examen">
+      <EntityTypeMapping TypeName="ColegiosModel.Estado_Examen">
+        <MappingFragment StoreEntitySet="Estado_Examen">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Temario">
+      <EntityTypeMapping TypeName="ColegiosModel.Estado_Temario">
+        <MappingFragment StoreEntitySet="Estado_Temario">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen">
+      <EntityTypeMapping TypeName="ColegiosModel.Examen">
+        <MappingFragment StoreEntitySet="Examen">
+          <ScalarProperty Name="id_examen" ColumnName="id_examen" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="id_materia" ColumnName="id_materia" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="fecha_examen" ColumnName="fecha_examen" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localidad">
+      <EntityTypeMapping TypeName="ColegiosModel.Localidad">
+        <MappingFragment StoreEntitySet="Localidad">
+          <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="ColegiosModel.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="id_materia" ColumnName="id_materia" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia_Curso">
+      <EntityTypeMapping TypeName="ColegiosModel.Materia_Curso">
+        <MappingFragment StoreEntitySet="Materia_Curso">
+          <ScalarProperty Name="id_materia" ColumnName="id_materia" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="ColegiosModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participante_Reunion">
+      <EntityTypeMapping TypeName="ColegiosModel.Participante_Reunion">
+        <MappingFragment StoreEntitySet="Participante_Reunion">
+          <ScalarProperty Name="id_reunion" ColumnName="id_reunion" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="confirma_presencia" ColumnName="confirma_presencia" />
+          <ScalarProperty Name="fecha_confirmacion" ColumnName="fecha_confirmacion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plan">
+      <EntityTypeMapping TypeName="ColegiosModel.Plan">
+        <MappingFragment StoreEntitySet="Plan">
+          <ScalarProperty Name="id_plan" ColumnName="id_plan" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cantidad_alumnos" ColumnName="cantidad_alumnos" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="ColegiosModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reunion">
+      <EntityTypeMapping TypeName="ColegiosModel.Reunion">
+        <MappingFragment StoreEntitySet="Reunion">
+          <ScalarProperty Name="id_reunion" ColumnName="id_reunion" />
+          <ScalarProperty Name="fecha_reunion" ColumnName="fecha_reunion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="ColegiosModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol_Usuario">
+      <EntityTypeMapping TypeName="ColegiosModel.Rol_Usuario">
+        <MappingFragment StoreEntitySet="Rol_Usuario">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tema_Examen">
+      <EntityTypeMapping TypeName="ColegiosModel.Tema_Examen">
+        <MappingFragment StoreEntitySet="Tema_Examen">
+          <ScalarProperty Name="id_examen" ColumnName="id_examen" />
+          <ScalarProperty Name="id_tema" ColumnName="id_tema" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temario">
+      <EntityTypeMapping TypeName="ColegiosModel.Temario">
+        <MappingFragment StoreEntitySet="Temario">
+          <ScalarProperty Name="id_tema" ColumnName="id_tema" />
+          <ScalarProperty Name="id_materia" ColumnName="id_materia" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno">
+      <EntityTypeMapping TypeName="ColegiosModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ColegiosModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="password_recovery" ColumnName="password_recovery" />
+          <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+          <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+          <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="usuario_alta" ColumnName="usuario_alta" />
+          <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+          <ScalarProperty Name="usuario_baja" ColumnName="usuario_baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

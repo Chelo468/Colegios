@@ -1,0 +1,1612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ColegiosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno_Curso">
+    <Key>
+      <PropertyRef Name="id_alumno" />
+      <PropertyRef Name="id_curso" />
+    </Key>
+    <Property Name="id_alumno" Type="int" Nullable="false" />
+    <Property Name="id_curso" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Alumno_Examen">
+    <Key>
+      <PropertyRef Name="id_alumno" />
+      <PropertyRef Name="id_examen" />
+    </Key>
+    <Property Name="id_alumno" Type="int" Nullable="false" />
+    <Property Name="id_examen" Type="int" Nullable="false" />
+    <Property Name="nota" Type="int" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Asistencia">
+    <Key>
+      <PropertyRef Name="id_asistencia" />
+    </Key>
+    <Property Name="id_asistencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_curso" Type="int" />
+    <Property Name="id_alumno" Type="int" />
+    <Property Name="fecha_asistencia" Type="datetime" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="id_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Aula">
+    <Key>
+      <PropertyRef Name="id_aula" />
+    </Key>
+    <Property Name="id_aula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="habilitado" Type="bit" />
+    <Property Name="capacidad_alumnos" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="id_colegio" Type="int" />
+  </EntityType>
+  <EntityType Name="Barrio">
+    <Key>
+      <PropertyRef Name="id_barrio" />
+    </Key>
+    <Property Name="id_barrio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="id_localidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Colegio">
+    <Key>
+      <PropertyRef Name="id_colegio" />
+    </Key>
+    <Property Name="id_colegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="calle" Type="varchar" MaxLength="100" />
+    <Property Name="calle_nro" Type="varchar" MaxLength="10" />
+    <Property Name="id_barrio" Type="int" />
+    <Property Name="id_localidad" Type="int" />
+    <Property Name="id_provincia" Type="int" />
+    <Property Name="id_pais" Type="int" />
+    <Property Name="id_plan" Type="int" />
+    <Property Name="fecha_suscripcion" Type="datetime" />
+    <Property Name="habilitado" Type="bit" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Colegio_Usuario">
+    <Key>
+      <PropertyRef Name="id_colegio" />
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_colegio" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Contacto_Colegio">
+    <Key>
+      <PropertyRef Name="id_contacto" />
+    </Key>
+    <Property Name="id_contacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_colegio" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="celular" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="id_curso" />
+    </Key>
+    <Property Name="id_curso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_aula" Type="int" />
+    <Property Name="id_profesor" Type="int" />
+    <Property Name="año" Type="int" />
+    <Property Name="id_turno" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="id_preceptor" Type="int" />
+  </EntityType>
+  <EntityType Name="Estado_Asistencia">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Estado_Examen">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Estado_Temario">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Examen">
+    <Key>
+      <PropertyRef Name="id_examen" />
+    </Key>
+    <Property Name="id_examen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_curso" Type="int" />
+    <Property Name="id_materia" Type="int" />
+    <Property Name="id_estado" Type="int" />
+    <Property Name="año" Type="int" />
+    <Property Name="fecha_examen" Type="datetime" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Localidad">
+    <Key>
+      <PropertyRef Name="id_localidad" />
+    </Key>
+    <Property Name="id_localidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="id_provincia" Type="int" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="id_materia" />
+    </Key>
+    <Property Name="id_materia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_colegio" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="nivel" Type="int" />
+  </EntityType>
+  <EntityType Name="Materia_Curso">
+    <Key>
+      <PropertyRef Name="id_materia" />
+      <PropertyRef Name="id_curso" />
+    </Key>
+    <Property Name="id_materia" Type="int" Nullable="false" />
+    <Property Name="id_curso" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id_pais" />
+    </Key>
+    <Property Name="id_pais" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Participante_Reunion">
+    <Key>
+      <PropertyRef Name="id_reunion" />
+      <PropertyRef Name="id_participante" />
+    </Key>
+    <Property Name="id_reunion" Type="int" Nullable="false" />
+    <Property Name="id_participante" Type="int" Nullable="false" />
+    <Property Name="confirma_presencia" Type="bit" />
+    <Property Name="fecha_confirmacion" Type="datetime" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Plan">
+    <Key>
+      <PropertyRef Name="id_plan" />
+    </Key>
+    <Property Name="id_plan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="cantidad_alumnos" Type="int" />
+    <Property Name="habilitado" Type="bit" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="id_provincia" />
+    </Key>
+    <Property Name="id_provincia" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="id_pais" Type="int" />
+  </EntityType>
+  <EntityType Name="Reunion">
+    <Key>
+      <PropertyRef Name="id_reunion" />
+    </Key>
+    <Property Name="id_reunion" Type="int" Nullable="false" />
+    <Property Name="fecha_reunion" Type="datetime" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="id_colegio" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="observaciones" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Rol_Usuario">
+    <Key>
+      <PropertyRef Name="id_rol" />
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Tema_Examen">
+    <Key>
+      <PropertyRef Name="id_examen" />
+      <PropertyRef Name="id_tema" />
+    </Key>
+    <Property Name="id_examen" Type="int" Nullable="false" />
+    <Property Name="id_tema" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Temario">
+    <Key>
+      <PropertyRef Name="id_tema" />
+    </Key>
+    <Property Name="id_tema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_materia" Type="int" />
+    <Property Name="año" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+    <Property Name="id_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="id_turno" />
+    </Key>
+    <Property Name="id_turno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_colegio" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="10" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+    <Property Name="habilitado" Type="bit" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="celular" Type="varchar" MaxLength="50" />
+    <Property Name="password_recovery" Type="varchar" MaxLength="100" />
+    <Property Name="id_barrio" Type="int" />
+    <Property Name="id_localidad" Type="int" />
+    <Property Name="id_provincia" Type="int" />
+    <Property Name="id_pais" Type="int" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="usuario_alta" Type="int" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <Association Name="FK_Alumno_Curso_Alumno">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Alumno_Curso" Type="Self.Alumno_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Curso">
+        <PropertyRef Name="id_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Curso_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Alumno_Curso" Type="Self.Alumno_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="id_curso" />
+      </Principal>
+      <Dependent Role="Alumno_Curso">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Curso_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno_Curso" Type="Self.Alumno_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Curso">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Curso_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno_Curso" Type="Self.Alumno_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Curso">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Examen_Examen">
+    <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+    <End Role="Alumno_Examen" Type="Self.Alumno_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examen">
+        <PropertyRef Name="id_examen" />
+      </Principal>
+      <Dependent Role="Alumno_Examen">
+        <PropertyRef Name="id_examen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Examen_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Alumno_Examen" Type="Self.Alumno_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Examen">
+        <PropertyRef Name="id_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Examen_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno_Examen" Type="Self.Alumno_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Examen">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Examen_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno_Examen" Type="Self.Alumno_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Alumno_Examen">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_Alumno">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="id_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="id_curso" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_Estado_Asistencia">
+    <End Role="Estado_Asistencia" Type="Self.Estado_Asistencia" Multiplicity="0..1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado_Asistencia">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aula_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="0..1" />
+    <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Aula">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aula_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Aula">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aula_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Aula">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Barrio_Localidad">
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+    <End Role="Barrio" Type="Self.Barrio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id_localidad" />
+      </Principal>
+      <Dependent Role="Barrio">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Barrio">
+    <End Role="Barrio" Type="Self.Barrio" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrio">
+        <PropertyRef Name="id_barrio" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_barrio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Localidad">
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id_localidad" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id_pais" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Plan">
+    <End Role="Plan" Type="Self.Plan" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan">
+        <PropertyRef Name="id_plan" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_plan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id_provincia" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Usuario_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+    <End Role="Colegio_Usuario" Type="Self.Colegio_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Colegio_Usuario">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Usuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Colegio_Usuario" Type="Self.Colegio_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Colegio_Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Usuario_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Colegio_Usuario" Type="Self.Colegio_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Colegio_Usuario">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Usuario_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Colegio_Usuario" Type="Self.Colegio_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Colegio_Usuario">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacto_Colegio_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="0..1" />
+    <End Role="Contacto_Colegio" Type="Self.Contacto_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Contacto_Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacto_Colegio_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Contacto_Colegio" Type="Self.Contacto_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Contacto_Colegio">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacto_Colegio_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Contacto_Colegio" Type="Self.Contacto_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Contacto_Colegio">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_Aula">
+    <End Role="Aula" Type="Self.Aula" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aula">
+        <PropertyRef Name="id_aula" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="id_aula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_Profesor">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="id_profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_Turno">
+    <End Role="Turno" Type="Self.Turno" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="id_turno" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="id_turno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Curso_UsuarioPreceptor">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="id_preceptor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="id_curso" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Estado_Examen">
+    <End Role="Estado_Examen" Type="Self.Estado_Examen" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado_Examen">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="id_materia" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="id_materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Localidad_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id_provincia" />
+      </Principal>
+      <Dependent Role="Localidad">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Curso_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Materia_Curso" Type="Self.Materia_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="id_curso" />
+      </Principal>
+      <Dependent Role="Materia_Curso">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Curso_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="Materia_Curso" Type="Self.Materia_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="id_materia" />
+      </Principal>
+      <Dependent Role="Materia_Curso">
+        <PropertyRef Name="id_materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Curso_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Materia_Curso" Type="Self.Materia_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Materia_Curso">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Curso_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Materia_Curso" Type="Self.Materia_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Materia_Curso">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participante_Reunion_Reunion">
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="1" />
+    <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reunion">
+        <PropertyRef Name="id_reunion" />
+      </Principal>
+      <Dependent Role="Participante_Reunion">
+        <PropertyRef Name="id_reunion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participante_Reunion_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Participante_Reunion">
+        <PropertyRef Name="id_participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participante_Reunion_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Participante_Reunion">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participante_Reunion_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Participante_Reunion">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plan_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Plan" Type="Self.Plan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Plan">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plan_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Plan" Type="Self.Plan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Plan">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provincia_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id_pais" />
+      </Principal>
+      <Dependent Role="Provincia">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reunion_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="0..1" />
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Reunion">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reunion_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Reunion">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reunion_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Reunion">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Rol_Usuario">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Usuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Rol_Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Usuario_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Rol_Usuario">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Usuario_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Rol_Usuario">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tema_Examen_Examen">
+    <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+    <End Role="Tema_Examen" Type="Self.Tema_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examen">
+        <PropertyRef Name="id_examen" />
+      </Principal>
+      <Dependent Role="Tema_Examen">
+        <PropertyRef Name="id_examen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tema_Examen_Temario">
+    <End Role="Temario" Type="Self.Temario" Multiplicity="1" />
+    <End Role="Tema_Examen" Type="Self.Tema_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Temario">
+        <PropertyRef Name="id_tema" />
+      </Principal>
+      <Dependent Role="Tema_Examen">
+        <PropertyRef Name="id_tema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tema_Examen_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Tema_Examen" Type="Self.Tema_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Tema_Examen">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tema_Examen_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Tema_Examen" Type="Self.Tema_Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Tema_Examen">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temario_Estado_Temario">
+    <End Role="Estado_Temario" Type="Self.Estado_Temario" Multiplicity="0..1" />
+    <End Role="Temario" Type="Self.Temario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado_Temario">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="Temario">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temario_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="Temario" Type="Self.Temario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="id_materia" />
+      </Principal>
+      <Dependent Role="Temario">
+        <PropertyRef Name="id_materia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temario_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Temario" Type="Self.Temario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Temario">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temario_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Temario" Type="Self.Temario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Temario">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="0..1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Barrio">
+    <End Role="Barrio" Type="Self.Barrio" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrio">
+        <PropertyRef Name="id_barrio" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_barrio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Localidad">
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id_localidad" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id_pais" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id_provincia" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_UsuarioAlta">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Usuario1" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Usuario1">
+        <PropertyRef Name="usuario_alta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_UsuarioBaja">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Usuario1" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Usuario1">
+        <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ColegiosModelStoreContainer">
+    <EntitySet Name="Alumno_Curso" EntityType="Self.Alumno_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alumno_Examen" EntityType="Self.Alumno_Examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aula" EntityType="Self.Aula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Barrio" EntityType="Self.Barrio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colegio_Usuario" EntityType="Self.Colegio_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto_Colegio" EntityType="Self.Contacto_Colegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Asistencia" EntityType="Self.Estado_Asistencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Examen" EntityType="Self.Estado_Examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Temario" EntityType="Self.Estado_Temario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examen" EntityType="Self.Examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materia_Curso" EntityType="Self.Materia_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Participante_Reunion" EntityType="Self.Participante_Reunion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reunion" EntityType="Self.Reunion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol_Usuario" EntityType="Self.Rol_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tema_Examen" EntityType="Self.Tema_Examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Temario" EntityType="Self.Temario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alumno_Curso_Alumno" Association="Self.FK_Alumno_Curso_Alumno">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Curso" EntitySet="Alumno_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Curso_Curso" Association="Self.FK_Alumno_Curso_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Alumno_Curso" EntitySet="Alumno_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Curso_UsuarioAlta" Association="Self.FK_Alumno_Curso_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Curso" EntitySet="Alumno_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Curso_UsuarioBaja" Association="Self.FK_Alumno_Curso_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Curso" EntitySet="Alumno_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Examen_Examen" Association="Self.FK_Alumno_Examen_Examen">
+      <End Role="Examen" EntitySet="Examen" />
+      <End Role="Alumno_Examen" EntitySet="Alumno_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Examen_Usuario" Association="Self.FK_Alumno_Examen_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Examen" EntitySet="Alumno_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Examen_UsuarioAlta" Association="Self.FK_Alumno_Examen_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Examen" EntitySet="Alumno_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Examen_UsuarioBaja" Association="Self.FK_Alumno_Examen_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno_Examen" EntitySet="Alumno_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_Alumno" Association="Self.FK_Asistencia_Alumno">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_Curso" Association="Self.FK_Asistencia_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_Estado_Asistencia" Association="Self.FK_Asistencia_Estado_Asistencia">
+      <End Role="Estado_Asistencia" EntitySet="Estado_Asistencia" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_UsuarioAlta" Association="Self.FK_Asistencia_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_UsuarioBaja" Association="Self.FK_Asistencia_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aula_Colegio" Association="Self.FK_Aula_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Aula" EntitySet="Aula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aula_UsuarioAlta" Association="Self.FK_Aula_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Aula" EntitySet="Aula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aula_UsuarioBaja" Association="Self.FK_Aula_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Aula" EntitySet="Aula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Barrio_Localidad" Association="Self.FK_Barrio_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Barrio" EntitySet="Barrio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Barrio" Association="Self.FK_Colegio_Barrio">
+      <End Role="Barrio" EntitySet="Barrio" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Localidad" Association="Self.FK_Colegio_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Pais" Association="Self.FK_Colegio_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Plan" Association="Self.FK_Colegio_Plan">
+      <End Role="Plan" EntitySet="Plan" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Provincia" Association="Self.FK_Colegio_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Usuario_Colegio" Association="Self.FK_Colegio_Usuario_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Colegio_Usuario" EntitySet="Colegio_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Usuario_Usuario" Association="Self.FK_Colegio_Usuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Colegio_Usuario" EntitySet="Colegio_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Usuario_UsuarioAlta" Association="Self.FK_Colegio_Usuario_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Colegio_Usuario" EntitySet="Colegio_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Usuario_UsuarioBaja" Association="Self.FK_Colegio_Usuario_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Colegio_Usuario" EntitySet="Colegio_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_UsuarioAlta" Association="Self.FK_Colegio_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_UsuarioBaja" Association="Self.FK_Colegio_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacto_Colegio_Colegio" Association="Self.FK_Contacto_Colegio_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Contacto_Colegio" EntitySet="Contacto_Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacto_Colegio_UsuarioAlta" Association="Self.FK_Contacto_Colegio_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Contacto_Colegio" EntitySet="Contacto_Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacto_Colegio_UsuarioBaja" Association="Self.FK_Contacto_Colegio_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Contacto_Colegio" EntitySet="Contacto_Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_Aula" Association="Self.FK_Curso_Aula">
+      <End Role="Aula" EntitySet="Aula" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_Profesor" Association="Self.FK_Curso_Profesor">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_Turno" Association="Self.FK_Curso_Turno">
+      <End Role="Turno" EntitySet="Turno" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_UsuarioAlta" Association="Self.FK_Curso_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_UsuarioBaja" Association="Self.FK_Curso_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Curso_UsuarioPreceptor" Association="Self.FK_Curso_UsuarioPreceptor">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Curso" Association="Self.FK_Examen_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Estado_Examen" Association="Self.FK_Examen_Estado_Examen">
+      <End Role="Estado_Examen" EntitySet="Estado_Examen" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Materia" Association="Self.FK_Examen_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_UsuarioAlta" Association="Self.FK_Examen_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_UsuarioBaja" Association="Self.FK_Examen_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Localidad_Provincia" Association="Self.FK_Localidad_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Localidad" EntitySet="Localidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Curso_Curso" Association="Self.FK_Materia_Curso_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Curso_Materia" Association="Self.FK_Materia_Curso_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Curso_UsuarioAlta" Association="Self.FK_Materia_Curso_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Curso_UsuarioBaja" Association="Self.FK_Materia_Curso_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participante_Reunion_Reunion" Association="Self.FK_Participante_Reunion_Reunion">
+      <End Role="Reunion" EntitySet="Reunion" />
+      <End Role="Participante_Reunion" EntitySet="Participante_Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participante_Reunion_Usuario" Association="Self.FK_Participante_Reunion_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Participante_Reunion" EntitySet="Participante_Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participante_Reunion_UsuarioAlta" Association="Self.FK_Participante_Reunion_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Participante_Reunion" EntitySet="Participante_Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participante_Reunion_UsuarioBaja" Association="Self.FK_Participante_Reunion_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Participante_Reunion" EntitySet="Participante_Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plan_UsuarioAlta" Association="Self.FK_Plan_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Plan" EntitySet="Plan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plan_UsuarioBaja" Association="Self.FK_Plan_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Plan" EntitySet="Plan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provincia_Pais" Association="Self.FK_Provincia_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Provincia" EntitySet="Provincia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reunion_Colegio" Association="Self.FK_Reunion_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Reunion" EntitySet="Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reunion_UsuarioAlta" Association="Self.FK_Reunion_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reunion" EntitySet="Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reunion_UsuarioBaja" Association="Self.FK_Reunion_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reunion" EntitySet="Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Usuario_Rol" Association="Self.FK_Rol_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Usuario_Usuario" Association="Self.FK_Rol_Usuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Usuario_UsuarioAlta" Association="Self.FK_Rol_Usuario_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Usuario_UsuarioBaja" Association="Self.FK_Rol_Usuario_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tema_Examen_Examen" Association="Self.FK_Tema_Examen_Examen">
+      <End Role="Examen" EntitySet="Examen" />
+      <End Role="Tema_Examen" EntitySet="Tema_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tema_Examen_Temario" Association="Self.FK_Tema_Examen_Temario">
+      <End Role="Temario" EntitySet="Temario" />
+      <End Role="Tema_Examen" EntitySet="Tema_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tema_Examen_UsuarioAlta" Association="Self.FK_Tema_Examen_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Tema_Examen" EntitySet="Tema_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tema_Examen_UsuarioBaja" Association="Self.FK_Tema_Examen_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Tema_Examen" EntitySet="Tema_Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temario_Estado_Temario" Association="Self.FK_Temario_Estado_Temario">
+      <End Role="Estado_Temario" EntitySet="Estado_Temario" />
+      <End Role="Temario" EntitySet="Temario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temario_Materia" Association="Self.FK_Temario_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Temario" EntitySet="Temario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temario_UsuarioAlta" Association="Self.FK_Temario_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Temario" EntitySet="Temario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temario_UsuarioBaja" Association="Self.FK_Temario_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Temario" EntitySet="Temario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_Colegio" Association="Self.FK_Turno_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_UsuarioAlta" Association="Self.FK_Turno_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_UsuarioBaja" Association="Self.FK_Turno_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Barrio" Association="Self.FK_Usuario_Barrio">
+      <End Role="Barrio" EntitySet="Barrio" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Localidad" Association="Self.FK_Usuario_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Pais" Association="Self.FK_Usuario_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Provincia" Association="Self.FK_Usuario_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_UsuarioAlta" Association="Self.FK_Usuario_UsuarioAlta">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario1" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_UsuarioBaja" Association="Self.FK_Usuario_UsuarioBaja">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario1" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
