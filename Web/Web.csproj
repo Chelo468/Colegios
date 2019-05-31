@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,6 +104,7 @@
     <Content Include="Content\Estilos\estilos.css" />
     <Content Include="Content\Estilos\main.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pages\Administracion\Index.aspx" />
     <Content Include="Pages\Sesion\Inicio.aspx" />
     <Content Include="Pages\Usuarios\registrar.aspx" />
     <Content Include="Scripts\_references.js" />
@@ -117,6 +120,13 @@
     <Compile Include="Code\Md5Utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Administracion\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Administracion\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Sesion\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
