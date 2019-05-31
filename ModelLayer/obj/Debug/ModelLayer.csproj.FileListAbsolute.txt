@@ -8,3 +8,14 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\EntityFramework.Sq
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.dll.config
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.dll
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.xml
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.pdb

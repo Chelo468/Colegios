@@ -12,10 +12,18 @@ namespace Web.Pages.Usuarios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargarComboPais();
-            cargarComboProvincia(int.Parse(cboPais.SelectedValue));
-            cargarComboLocalidad(int.Parse(cboProvincia.SelectedValue));
-            cargarComboBarrio(int.Parse(cboLocalidad.SelectedValue));
+            try
+            {
+                cargarComboPais();
+                cargarComboProvincia(int.Parse(cboPais.SelectedValue));
+                cargarComboLocalidad(int.Parse(cboProvincia.SelectedValue));
+                cargarComboBarrio(int.Parse(cboLocalidad.SelectedValue));
+
+            }
+            catch (Exception ex)
+            {
+                hdfError.Value = ex.Message;
+            }
         }
 
         private void cargarComboPais()
