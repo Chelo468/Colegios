@@ -12,6 +12,7 @@ namespace ModelLayer.Entities
     using System;
     using System.Collections.Generic;
     
+    
     public partial class Tema_Examen
     {
         public int id_examen { get; set; }

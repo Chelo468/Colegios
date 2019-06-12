@@ -12,6 +12,7 @@ namespace ModelLayer.Entities
     using System;
     using System.Collections.Generic;
     
+    
     public partial class Colegio_Usuario
     {
         public int id_colegio { get; set; }

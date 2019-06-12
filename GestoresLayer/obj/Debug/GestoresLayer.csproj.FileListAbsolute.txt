@@ -19,11 +19,8 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\ModelLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\NegocioLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\ModelLayer.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\ModelLayer.dll.config
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\NegocioLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\Utils.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csprojAssemblyReference.cache
-D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csproj.CoreCompileInputs.cache
-D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csproj.CopyComplete
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.pdb
+D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csprojResolveAssemblyReference.cache

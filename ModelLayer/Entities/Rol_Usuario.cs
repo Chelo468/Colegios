@@ -12,6 +12,7 @@ namespace ModelLayer.Entities
     using System;
     using System.Collections.Generic;
     
+    
     public partial class Rol_Usuario
     {
         public int id_rol { get; set; }
