@@ -5,11 +5,9 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\ModelLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\NegocioLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\Utils.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\ModelLayer.pdb
-C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\ModelLayer.dll.config
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\NegocioLayer.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\bin\Debug\Utils.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.csprojResolveAssemblyReference.cache
-C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\GestoresLayer.dll

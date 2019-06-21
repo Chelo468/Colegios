@@ -6,7 +6,6 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.S
 C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.xml
 C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
-C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\ModelLayer.dll.config

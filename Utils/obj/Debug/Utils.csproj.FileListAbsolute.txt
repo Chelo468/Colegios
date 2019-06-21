@@ -1,7 +1,6 @@
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\bin\Debug\Utils.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\bin\Debug\Utils.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
-C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\bin\Debug\Utils.dll

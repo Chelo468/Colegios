@@ -46,22 +46,22 @@
             <div class="clearfix"></div>
             <div class="form-group col-md-12">
                 <asp:Label ID="lblPais" runat="server" AssociatedControlID="txtNombre">Pais</asp:Label>
-                <asp:DropDownList ID="cboPais" runat="server" />        
+                <asp:DropDownList ID="cboPais" runat="server" CssClass="form-control" />        
             </div>
             <div class="clearfix"></div>
             <div class="form-group col-md-12">
                 <asp:Label ID="lblProvincia" runat="server" AssociatedControlID="txtNombre">Provincia</asp:Label>
-                <asp:DropDownList ID="cboProvincia" runat="server" />        
+                <asp:DropDownList ID="cboProvincia" runat="server" CssClass="form-control" />        
             </div>
             <div class="clearfix"></div>
             <div class="form-group col-md-12">
                 <asp:Label ID="lblLocalidad" runat="server" AssociatedControlID="txtNombre">Localidad</asp:Label>
-                <asp:DropDownList ID="cboLocalidad" runat="server" />        
+                <asp:DropDownList ID="cboLocalidad" runat="server" CssClass="form-control" />        
             </div>
             <div class="clearfix"></div>
             <div class="form-group col-md-12">
                 <asp:Label ID="lblBarrio" runat="server" AssociatedControlID="txtNombre">Barrio</asp:Label>
-                <asp:DropDownList ID="cboBarrio" runat="server" />        
+                <asp:DropDownList ID="cboBarrio" runat="server" CssClass="form-control" />        
             </div>
             <div class="clearfix"></div>
             <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="btnRegistrar_Click" />

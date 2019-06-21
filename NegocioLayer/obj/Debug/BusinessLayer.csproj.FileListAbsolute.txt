@@ -4,10 +4,8 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\EntityFramework
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\ModelLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\Utils.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\ModelLayer.pdb
-C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\ModelLayer.dll.config
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\bin\Debug\Utils.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\obj\Debug\NegocioLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\NegocioLayer\obj\Debug\NegocioLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\bin\Debug\NegocioLayer.dll

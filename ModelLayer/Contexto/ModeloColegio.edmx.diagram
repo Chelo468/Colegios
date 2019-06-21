@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="ColegiosModel.Alumno_Examen" Width="1.5" PointX="30.75" PointY="31.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Asistencia" Width="1.5" PointX="28.5" PointY="31.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Aula" Width="1.5" PointX="18" PointY="30.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ColegiosModel.Barrio" Width="1.5" PointX="7.5" PointY="34" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Colegio" Width="1.5" PointX="9.75" PointY="28.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Colegio_Usuario" Width="1.5" PointX="15" PointY="27.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Contacto_Colegio" Width="1.5" PointX="15" PointY="36" IsExpanded="true" />
@@ -18,13 +17,10 @@
         <EntityTypeShape EntityType="ColegiosModel.Estado_Examen" Width="1.5" PointX="26.25" PointY="26" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Estado_Temario" Width="1.5" PointX="18.75" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Examen" Width="1.5" PointX="28.5" PointY="26.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ColegiosModel.Localidad" Width="1.5" PointX="5.25" PointY="33.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Materia" Width="1.5" PointX="26.25" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Materia_Curso" Width="1.5" PointX="25.5" PointY="35.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ColegiosModel.Pais" Width="1.5" PointX="0.75" PointY="27.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Participante_Reunion" Width="1.5" PointX="23.25" PointY="29" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Plan" Width="1.5" PointX="15" PointY="31.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ColegiosModel.Provincia" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Reunion" Width="1.5" PointX="18" PointY="26" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Rol" Width="1.5" PointX="18.75" PointY="40.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Rol_Usuario" Width="1.5" PointX="21" PointY="31.25" IsExpanded="true" />
@@ -49,13 +45,7 @@
         <AssociationConnector Association="ColegiosModel.FK_Aula_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Aula_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Curso_Aula" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Barrio_Localidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Colegio_Barrio" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Usuario_Barrio" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Colegio_Localidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Colegio_Pais" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Colegio_Plan" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Colegio_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Colegio_Usuario_Colegio" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Colegio_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Colegio_UsuarioBaja" ManuallyRouted="false" />
@@ -80,21 +70,16 @@
         <AssociationConnector Association="ColegiosModel.FK_Examen_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Examen_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Tema_Examen_Examen" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Localidad_Provincia" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Usuario_Localidad" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Materia_Curso_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Temario_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Materia_Curso_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Materia_Curso_UsuarioBaja" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Provincia_Pais" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Usuario_Pais" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Participante_Reunion_Reunion" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Participante_Reunion_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Participante_Reunion_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Participante_Reunion_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Plan_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Plan_UsuarioBaja" ManuallyRouted="false" />
-        <AssociationConnector Association="ColegiosModel.FK_Usuario_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Reunion_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Reunion_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Rol_Usuario_Rol" ManuallyRouted="false" />
@@ -110,7 +95,22 @@
         <AssociationConnector Association="ColegiosModel.FK_Turno_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_UsuarioBaja" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="ColegiosModel.Barrio" Width="1.5" PointX="7.5" PointY="31.625" />
+        <EntityTypeShape EntityType="ColegiosModel.Localidad" Width="1.5" PointX="5.25" PointY="31.5" />
+        <EntityTypeShape EntityType="ColegiosModel.Pais" Width="1.5" PointX="0.75" PointY="31.75" />
+        <EntityTypeShape EntityType="ColegiosModel.Provincia" Width="1.5" PointX="3" PointY="31.5" />
+        <AssociationConnector Association="ColegiosModel.FK_Barrio_Localidad" />
+        <AssociationConnector Association="ColegiosModel.FK_Colegio_Barrio" />
+        <AssociationConnector Association="ColegiosModel.FK_Usuario_Barrio" />
+        <AssociationConnector Association="ColegiosModel.FK_Colegio_Localidad" />
+        <AssociationConnector Association="ColegiosModel.FK_Colegio_Pais" />
+        <AssociationConnector Association="ColegiosModel.FK_Colegio_Provincia" />
+        <AssociationConnector Association="ColegiosModel.FK_Localidad_Provincia" />
+        <AssociationConnector Association="ColegiosModel.FK_Usuario_Localidad" />
+        <AssociationConnector Association="ColegiosModel.FK_Provincia_Pais" />
+        <AssociationConnector Association="ColegiosModel.FK_Usuario_Pais" />
+        <AssociationConnector Association="ColegiosModel.FK_Usuario_Provincia" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

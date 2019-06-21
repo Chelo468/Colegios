@@ -71,17 +71,6 @@
     <NavigationProperty Name="Usuario1" Relationship="Self.FK_Aula_UsuarioBaja" FromRole="Aula" ToRole="Usuario" />
     <NavigationProperty Name="Curso" Relationship="Self.FK_Curso_Aula" FromRole="Aula" ToRole="Curso" />
   </EntityType>
-  <EntityType Name="Barrio">
-    <Key>
-      <PropertyRef Name="id_barrio" />
-    </Key>
-    <Property Name="id_barrio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="id_localidad" Type="Int32" />
-    <NavigationProperty Name="Localidad" Relationship="Self.FK_Barrio_Localidad" FromRole="Barrio" ToRole="Localidad" />
-    <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_Barrio" FromRole="Barrio" ToRole="Colegio" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Barrio" FromRole="Barrio" ToRole="Usuario" />
-  </EntityType>
   <EntityType Name="Colegio">
     <Key>
       <PropertyRef Name="id_colegio" />
@@ -102,17 +91,17 @@
     <Property Name="fecha_baja" Type="DateTime" Precision="3" />
     <Property Name="usuario_baja" Type="Int32" />
     <NavigationProperty Name="Aula" Relationship="Self.FK_Aula_Colegio" FromRole="Colegio" ToRole="Aula" />
-    <NavigationProperty Name="Barrio" Relationship="Self.FK_Colegio_Barrio" FromRole="Colegio" ToRole="Barrio" />
-    <NavigationProperty Name="Localidad" Relationship="Self.FK_Colegio_Localidad" FromRole="Colegio" ToRole="Localidad" />
-    <NavigationProperty Name="Pais" Relationship="Self.FK_Colegio_Pais" FromRole="Colegio" ToRole="Pais" />
     <NavigationProperty Name="Plan" Relationship="Self.FK_Colegio_Plan" FromRole="Colegio" ToRole="Plan" />
-    <NavigationProperty Name="Provincia" Relationship="Self.FK_Colegio_Provincia" FromRole="Colegio" ToRole="Provincia" />
     <NavigationProperty Name="Colegio_Usuario" Relationship="Self.FK_Colegio_Usuario_Colegio" FromRole="Colegio" ToRole="Colegio_Usuario" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK_Colegio_UsuarioAlta" FromRole="Colegio" ToRole="Usuario" />
     <NavigationProperty Name="Usuario1" Relationship="Self.FK_Colegio_UsuarioBaja" FromRole="Colegio" ToRole="Usuario" />
     <NavigationProperty Name="Contacto_Colegio" Relationship="Self.FK_Contacto_Colegio_Colegio" FromRole="Colegio" ToRole="Contacto_Colegio" />
     <NavigationProperty Name="Reunion" Relationship="Self.FK_Reunion_Colegio" FromRole="Colegio" ToRole="Reunion" />
     <NavigationProperty Name="Turno" Relationship="Self.FK_Turno_Colegio" FromRole="Colegio" ToRole="Turno" />
+    <NavigationProperty Name="Barrio" Relationship="ColegiosModel.FK_Colegio_Barrio" FromRole="Colegio" ToRole="Barrio" />
+    <NavigationProperty Name="Localidad" Relationship="ColegiosModel.FK_Colegio_Localidad" FromRole="Colegio" ToRole="Localidad" />
+    <NavigationProperty Name="Pais" Relationship="ColegiosModel.FK_Colegio_Pais" FromRole="Colegio" ToRole="Pais" />
+    <NavigationProperty Name="Provincia" Relationship="ColegiosModel.FK_Colegio_Provincia" FromRole="Colegio" ToRole="Provincia" />
   </EntityType>
   <EntityType Name="Colegio_Usuario">
     <Key>
@@ -221,18 +210,6 @@
     <NavigationProperty Name="Usuario1" Relationship="Self.FK_Examen_UsuarioBaja" FromRole="Examen" ToRole="Usuario" />
     <NavigationProperty Name="Tema_Examen" Relationship="Self.FK_Tema_Examen_Examen" FromRole="Examen" ToRole="Tema_Examen" />
   </EntityType>
-  <EntityType Name="Localidad">
-    <Key>
-      <PropertyRef Name="id_localidad" />
-    </Key>
-    <Property Name="id_localidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="id_provincia" Type="Int32" />
-    <NavigationProperty Name="Barrio" Relationship="Self.FK_Barrio_Localidad" FromRole="Localidad" ToRole="Barrio" />
-    <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_Localidad" FromRole="Localidad" ToRole="Colegio" />
-    <NavigationProperty Name="Provincia" Relationship="Self.FK_Localidad_Provincia" FromRole="Localidad" ToRole="Provincia" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Localidad" FromRole="Localidad" ToRole="Usuario" />
-  </EntityType>
   <EntityType Name="Materia">
     <Key>
       <PropertyRef Name="id_materia" />
@@ -264,16 +241,6 @@
     <NavigationProperty Name="Materia" Relationship="Self.FK_Materia_Curso_Materia" FromRole="Materia_Curso" ToRole="Materia" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK_Materia_Curso_UsuarioAlta" FromRole="Materia_Curso" ToRole="Usuario" />
     <NavigationProperty Name="Usuario1" Relationship="Self.FK_Materia_Curso_UsuarioBaja" FromRole="Materia_Curso" ToRole="Usuario" />
-  </EntityType>
-  <EntityType Name="Pais">
-    <Key>
-      <PropertyRef Name="id_pais" />
-    </Key>
-    <Property Name="id_pais" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_Pais" FromRole="Pais" ToRole="Colegio" />
-    <NavigationProperty Name="Provincia" Relationship="Self.FK_Provincia_Pais" FromRole="Pais" ToRole="Provincia" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Pais" FromRole="Pais" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Participante_Reunion">
     <Key>
@@ -308,18 +275,6 @@
     <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_Plan" FromRole="Plan" ToRole="Colegio" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK_Plan_UsuarioAlta" FromRole="Plan" ToRole="Usuario" />
     <NavigationProperty Name="Usuario1" Relationship="Self.FK_Plan_UsuarioBaja" FromRole="Plan" ToRole="Usuario" />
-  </EntityType>
-  <EntityType Name="Provincia">
-    <Key>
-      <PropertyRef Name="id_provincia" />
-    </Key>
-    <Property Name="id_provincia" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="id_pais" Type="Int32" />
-    <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_Provincia" FromRole="Provincia" ToRole="Colegio" />
-    <NavigationProperty Name="Localidad" Relationship="Self.FK_Localidad_Provincia" FromRole="Provincia" ToRole="Localidad" />
-    <NavigationProperty Name="Pais" Relationship="Self.FK_Provincia_Pais" FromRole="Provincia" ToRole="Pais" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Provincia" FromRole="Provincia" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Reunion">
     <Key>
@@ -448,7 +403,6 @@
     <NavigationProperty Name="Asistencia2" Relationship="Self.FK_Asistencia_UsuarioBaja" FromRole="Usuario" ToRole="Asistencia" />
     <NavigationProperty Name="Aula" Relationship="Self.FK_Aula_UsuarioAlta" FromRole="Usuario" ToRole="Aula" />
     <NavigationProperty Name="Aula1" Relationship="Self.FK_Aula_UsuarioBaja" FromRole="Usuario" ToRole="Aula" />
-    <NavigationProperty Name="Barrio" Relationship="Self.FK_Usuario_Barrio" FromRole="Usuario" ToRole="Barrio" />
     <NavigationProperty Name="Colegio" Relationship="Self.FK_Colegio_UsuarioAlta" FromRole="Usuario" ToRole="Colegio" />
     <NavigationProperty Name="Colegio1" Relationship="Self.FK_Colegio_UsuarioBaja" FromRole="Usuario" ToRole="Colegio" />
     <NavigationProperty Name="Colegio_Usuario" Relationship="Self.FK_Colegio_Usuario_Usuario" FromRole="Usuario" ToRole="Colegio_Usuario" />
@@ -462,16 +416,13 @@
     <NavigationProperty Name="Curso3" Relationship="Self.FK_Curso_UsuarioPreceptor" FromRole="Usuario" ToRole="Curso" />
     <NavigationProperty Name="Examen" Relationship="Self.FK_Examen_UsuarioAlta" FromRole="Usuario" ToRole="Examen" />
     <NavigationProperty Name="Examen1" Relationship="Self.FK_Examen_UsuarioBaja" FromRole="Usuario" ToRole="Examen" />
-    <NavigationProperty Name="Localidad" Relationship="Self.FK_Usuario_Localidad" FromRole="Usuario" ToRole="Localidad" />
     <NavigationProperty Name="Materia_Curso" Relationship="Self.FK_Materia_Curso_UsuarioAlta" FromRole="Usuario" ToRole="Materia_Curso" />
     <NavigationProperty Name="Materia_Curso1" Relationship="Self.FK_Materia_Curso_UsuarioBaja" FromRole="Usuario" ToRole="Materia_Curso" />
-    <NavigationProperty Name="Pais" Relationship="Self.FK_Usuario_Pais" FromRole="Usuario" ToRole="Pais" />
     <NavigationProperty Name="Participante_Reunion" Relationship="Self.FK_Participante_Reunion_Usuario" FromRole="Usuario" ToRole="Participante_Reunion" />
     <NavigationProperty Name="Participante_Reunion1" Relationship="Self.FK_Participante_Reunion_UsuarioAlta" FromRole="Usuario" ToRole="Participante_Reunion" />
     <NavigationProperty Name="Participante_Reunion2" Relationship="Self.FK_Participante_Reunion_UsuarioBaja" FromRole="Usuario" ToRole="Participante_Reunion" />
     <NavigationProperty Name="Plan" Relationship="Self.FK_Plan_UsuarioAlta" FromRole="Usuario" ToRole="Plan" />
     <NavigationProperty Name="Plan1" Relationship="Self.FK_Plan_UsuarioBaja" FromRole="Usuario" ToRole="Plan" />
-    <NavigationProperty Name="Provincia" Relationship="Self.FK_Usuario_Provincia" FromRole="Usuario" ToRole="Provincia" />
     <NavigationProperty Name="Reunion" Relationship="Self.FK_Reunion_UsuarioAlta" FromRole="Usuario" ToRole="Reunion" />
     <NavigationProperty Name="Reunion1" Relationship="Self.FK_Reunion_UsuarioBaja" FromRole="Usuario" ToRole="Reunion" />
     <NavigationProperty Name="Rol_Usuario" Relationship="Self.FK_Rol_Usuario_Usuario" FromRole="Usuario" ToRole="Rol_Usuario" />
@@ -487,6 +438,10 @@
     <NavigationProperty Name="Usuario2" Relationship="Self.FK_Usuario_UsuarioAlta" FromRole="Usuario1" ToRole="Usuario" />
     <NavigationProperty Name="Usuario11" Relationship="Self.FK_Usuario_UsuarioBaja" FromRole="Usuario" ToRole="Usuario1" />
     <NavigationProperty Name="Usuario3" Relationship="Self.FK_Usuario_UsuarioBaja" FromRole="Usuario1" ToRole="Usuario" />
+    <NavigationProperty Name="Barrio" Relationship="ColegiosModel.FK_Usuario_Barrio" FromRole="Usuario" ToRole="Barrio" />
+    <NavigationProperty Name="Localidad" Relationship="ColegiosModel.FK_Usuario_Localidad" FromRole="Usuario" ToRole="Localidad" />
+    <NavigationProperty Name="Pais" Relationship="ColegiosModel.FK_Usuario_Pais" FromRole="Usuario" ToRole="Pais" />
+    <NavigationProperty Name="Provincia" Relationship="ColegiosModel.FK_Usuario_Provincia" FromRole="Usuario" ToRole="Provincia" />
   </EntityType>
   <Association Name="FK_Alumno_Curso_Alumno">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -692,66 +647,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Barrio_Localidad">
-    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
-    <End Role="Barrio" Type="Self.Barrio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Localidad">
-        <PropertyRef Name="id_localidad" />
-      </Principal>
-      <Dependent Role="Barrio">
-        <PropertyRef Name="id_localidad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Colegio_Barrio">
-    <End Role="Barrio" Type="Self.Barrio" Multiplicity="0..1" />
-    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Barrio">
-        <PropertyRef Name="id_barrio" />
-      </Principal>
-      <Dependent Role="Colegio">
-        <PropertyRef Name="id_barrio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Usuario_Barrio">
-    <End Role="Barrio" Type="Self.Barrio" Multiplicity="0..1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Barrio">
-        <PropertyRef Name="id_barrio" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="id_barrio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Colegio_Localidad">
-    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
-    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Localidad">
-        <PropertyRef Name="id_localidad" />
-      </Principal>
-      <Dependent Role="Colegio">
-        <PropertyRef Name="id_localidad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Colegio_Pais">
-    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
-    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pais">
-        <PropertyRef Name="id_pais" />
-      </Principal>
-      <Dependent Role="Colegio">
-        <PropertyRef Name="id_pais" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Colegio_Plan">
     <End Role="Plan" Type="Self.Plan" Multiplicity="0..1" />
     <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
@@ -761,18 +656,6 @@
       </Principal>
       <Dependent Role="Colegio">
         <PropertyRef Name="id_plan" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Colegio_Provincia">
-    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
-    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="id_provincia" />
-      </Principal>
-      <Dependent Role="Colegio">
-        <PropertyRef Name="id_provincia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1064,30 +947,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Localidad_Provincia">
-    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
-    <End Role="Localidad" Type="Self.Localidad" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="id_provincia" />
-      </Principal>
-      <Dependent Role="Localidad">
-        <PropertyRef Name="id_provincia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Usuario_Localidad">
-    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Localidad">
-        <PropertyRef Name="id_localidad" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="id_localidad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Materia_Curso_Materia">
     <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
     <End Role="Materia_Curso" Type="Self.Materia_Curso" Multiplicity="*" />
@@ -1133,30 +992,6 @@
       </Principal>
       <Dependent Role="Materia_Curso">
         <PropertyRef Name="usuario_baja" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Provincia_Pais">
-    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
-    <End Role="Provincia" Type="Self.Provincia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pais">
-        <PropertyRef Name="id_pais" />
-      </Principal>
-      <Dependent Role="Provincia">
-        <PropertyRef Name="id_pais" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Usuario_Pais">
-    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pais">
-        <PropertyRef Name="id_pais" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="id_pais" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1229,18 +1064,6 @@
       </Principal>
       <Dependent Role="Plan">
         <PropertyRef Name="usuario_baja" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Usuario_Provincia">
-    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Provincia">
-        <PropertyRef Name="id_provincia" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="id_provincia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1429,7 +1252,6 @@
     <EntitySet Name="Alumno_Examen" EntityType="Self.Alumno_Examen" />
     <EntitySet Name="Asistencia" EntityType="Self.Asistencia" />
     <EntitySet Name="Aula" EntityType="Self.Aula" />
-    <EntitySet Name="Barrio" EntityType="Self.Barrio" />
     <EntitySet Name="Colegio" EntityType="Self.Colegio" />
     <EntitySet Name="Colegio_Usuario" EntityType="Self.Colegio_Usuario" />
     <EntitySet Name="Contacto_Colegio" EntityType="Self.Contacto_Colegio" />
@@ -1438,13 +1260,10 @@
     <EntitySet Name="Estado_Examen" EntityType="Self.Estado_Examen" />
     <EntitySet Name="Estado_Temario" EntityType="Self.Estado_Temario" />
     <EntitySet Name="Examen" EntityType="Self.Examen" />
-    <EntitySet Name="Localidad" EntityType="Self.Localidad" />
     <EntitySet Name="Materia" EntityType="Self.Materia" />
     <EntitySet Name="Materia_Curso" EntityType="Self.Materia_Curso" />
-    <EntitySet Name="Pais" EntityType="Self.Pais" />
     <EntitySet Name="Participante_Reunion" EntityType="Self.Participante_Reunion" />
     <EntitySet Name="Plan" EntityType="Self.Plan" />
-    <EntitySet Name="Provincia" EntityType="Self.Provincia" />
     <EntitySet Name="Reunion" EntityType="Self.Reunion" />
     <EntitySet Name="Rol" EntityType="Self.Rol" />
     <EntitySet Name="Rol_Usuario" EntityType="Self.Rol_Usuario" />
@@ -1520,32 +1339,8 @@
       <End Role="Aula" EntitySet="Aula" />
       <End Role="Curso" EntitySet="Curso" />
     </AssociationSet>
-    <AssociationSet Name="FK_Barrio_Localidad" Association="Self.FK_Barrio_Localidad">
-      <End Role="Localidad" EntitySet="Localidad" />
-      <End Role="Barrio" EntitySet="Barrio" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Colegio_Barrio" Association="Self.FK_Colegio_Barrio">
-      <End Role="Barrio" EntitySet="Barrio" />
-      <End Role="Colegio" EntitySet="Colegio" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Usuario_Barrio" Association="Self.FK_Usuario_Barrio">
-      <End Role="Barrio" EntitySet="Barrio" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Colegio_Localidad" Association="Self.FK_Colegio_Localidad">
-      <End Role="Localidad" EntitySet="Localidad" />
-      <End Role="Colegio" EntitySet="Colegio" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Colegio_Pais" Association="Self.FK_Colegio_Pais">
-      <End Role="Pais" EntitySet="Pais" />
-      <End Role="Colegio" EntitySet="Colegio" />
-    </AssociationSet>
     <AssociationSet Name="FK_Colegio_Plan" Association="Self.FK_Colegio_Plan">
       <End Role="Plan" EntitySet="Plan" />
-      <End Role="Colegio" EntitySet="Colegio" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Colegio_Provincia" Association="Self.FK_Colegio_Provincia">
-      <End Role="Provincia" EntitySet="Provincia" />
       <End Role="Colegio" EntitySet="Colegio" />
     </AssociationSet>
     <AssociationSet Name="FK_Colegio_Usuario_Colegio" Association="Self.FK_Colegio_Usuario_Colegio">
@@ -1644,14 +1439,6 @@
       <End Role="Examen" EntitySet="Examen" />
       <End Role="Tema_Examen" EntitySet="Tema_Examen" />
     </AssociationSet>
-    <AssociationSet Name="FK_Localidad_Provincia" Association="Self.FK_Localidad_Provincia">
-      <End Role="Provincia" EntitySet="Provincia" />
-      <End Role="Localidad" EntitySet="Localidad" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Usuario_Localidad" Association="Self.FK_Usuario_Localidad">
-      <End Role="Localidad" EntitySet="Localidad" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
     <AssociationSet Name="FK_Materia_Curso_Materia" Association="Self.FK_Materia_Curso_Materia">
       <End Role="Materia" EntitySet="Materia" />
       <End Role="Materia_Curso" EntitySet="Materia_Curso" />
@@ -1667,14 +1454,6 @@
     <AssociationSet Name="FK_Materia_Curso_UsuarioBaja" Association="Self.FK_Materia_Curso_UsuarioBaja">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Materia_Curso" EntitySet="Materia_Curso" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Provincia_Pais" Association="Self.FK_Provincia_Pais">
-      <End Role="Pais" EntitySet="Pais" />
-      <End Role="Provincia" EntitySet="Provincia" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Usuario_Pais" Association="Self.FK_Usuario_Pais">
-      <End Role="Pais" EntitySet="Pais" />
-      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_Participante_Reunion_Reunion" Association="Self.FK_Participante_Reunion_Reunion">
       <End Role="Reunion" EntitySet="Reunion" />
@@ -1699,10 +1478,6 @@
     <AssociationSet Name="FK_Plan_UsuarioBaja" Association="Self.FK_Plan_UsuarioBaja">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Plan" EntitySet="Plan" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Usuario_Provincia" Association="Self.FK_Usuario_Provincia">
-      <End Role="Provincia" EntitySet="Provincia" />
-      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_Reunion_UsuarioAlta" Association="Self.FK_Reunion_UsuarioAlta">
       <End Role="Usuario" EntitySet="Usuario" />
@@ -1764,5 +1539,230 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Usuario1" EntitySet="Usuario" />
     </AssociationSet>
+    <EntitySet Name="Barrio" EntityType="ColegiosModel.Barrio" />
+    <EntitySet Name="Localidad" EntityType="ColegiosModel.Localidad" />
+    <EntitySet Name="Pais" EntityType="ColegiosModel.Pais" />
+    <EntitySet Name="Provincia" EntityType="ColegiosModel.Provincia" />
+    <AssociationSet Name="FK_Barrio_Localidad" Association="ColegiosModel.FK_Barrio_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Barrio" EntitySet="Barrio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Barrio" Association="ColegiosModel.FK_Colegio_Barrio">
+      <End Role="Barrio" EntitySet="Barrio" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Barrio" Association="ColegiosModel.FK_Usuario_Barrio">
+      <End Role="Barrio" EntitySet="Barrio" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Localidad" Association="ColegiosModel.FK_Colegio_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Pais" Association="ColegiosModel.FK_Colegio_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colegio_Provincia" Association="ColegiosModel.FK_Colegio_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Localidad_Provincia" Association="ColegiosModel.FK_Localidad_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Localidad" EntitySet="Localidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Localidad" Association="ColegiosModel.FK_Usuario_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provincia_Pais" Association="ColegiosModel.FK_Provincia_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Provincia" EntitySet="Provincia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Pais" Association="ColegiosModel.FK_Usuario_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Provincia" Association="ColegiosModel.FK_Usuario_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Barrio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_localidad" Type="Int32" />
+    <NavigationProperty Name="Localidad" Relationship="ColegiosModel.FK_Barrio_Localidad" FromRole="Barrio" ToRole="Localidad" />
+    <NavigationProperty Name="Colegio" Relationship="ColegiosModel.FK_Colegio_Barrio" FromRole="Barrio" ToRole="Colegio" />
+    <NavigationProperty Name="Usuario" Relationship="ColegiosModel.FK_Usuario_Barrio" FromRole="Barrio" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Localidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_provincia" Type="Int32" />
+    <NavigationProperty Name="Barrio" Relationship="ColegiosModel.FK_Barrio_Localidad" FromRole="Localidad" ToRole="Barrio" />
+    <NavigationProperty Name="Colegio" Relationship="ColegiosModel.FK_Colegio_Localidad" FromRole="Localidad" ToRole="Colegio" />
+    <NavigationProperty Name="Provincia" Relationship="ColegiosModel.FK_Localidad_Provincia" FromRole="Localidad" ToRole="Provincia" />
+    <NavigationProperty Name="Usuario" Relationship="ColegiosModel.FK_Usuario_Localidad" FromRole="Localidad" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Colegio" Relationship="ColegiosModel.FK_Colegio_Pais" FromRole="Pais" ToRole="Colegio" />
+    <NavigationProperty Name="Provincia" Relationship="ColegiosModel.FK_Provincia_Pais" FromRole="Pais" ToRole="Provincia" />
+    <NavigationProperty Name="Usuario" Relationship="ColegiosModel.FK_Usuario_Pais" FromRole="Pais" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_pais" Type="Int32" />
+    <NavigationProperty Name="Colegio" Relationship="ColegiosModel.FK_Colegio_Provincia" FromRole="Provincia" ToRole="Colegio" />
+    <NavigationProperty Name="Localidad" Relationship="ColegiosModel.FK_Localidad_Provincia" FromRole="Provincia" ToRole="Localidad" />
+    <NavigationProperty Name="Pais" Relationship="ColegiosModel.FK_Provincia_Pais" FromRole="Provincia" ToRole="Pais" />
+    <NavigationProperty Name="Usuario" Relationship="ColegiosModel.FK_Usuario_Provincia" FromRole="Provincia" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Barrio_Localidad">
+    <End Type="ColegiosModel.Localidad" Role="Localidad" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Barrio" Role="Barrio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Barrio">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Barrio">
+    <End Type="ColegiosModel.Barrio" Role="Barrio" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Colegio" Role="Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_barrio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Barrio">
+    <End Type="ColegiosModel.Barrio" Role="Barrio" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_barrio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Localidad">
+    <End Type="ColegiosModel.Localidad" Role="Localidad" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Colegio" Role="Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Pais">
+    <End Type="ColegiosModel.Pais" Role="Pais" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Colegio" Role="Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colegio_Provincia">
+    <End Type="ColegiosModel.Provincia" Role="Provincia" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Colegio" Role="Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Localidad_Provincia">
+    <End Type="ColegiosModel.Provincia" Role="Provincia" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Localidad" Role="Localidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Localidad">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Localidad">
+    <End Type="ColegiosModel.Localidad" Role="Localidad" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provincia_Pais">
+    <End Type="ColegiosModel.Pais" Role="Pais" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Provincia" Role="Provincia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Provincia">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Pais">
+    <End Type="ColegiosModel.Pais" Role="Pais" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Provincia">
+    <End Type="ColegiosModel.Provincia" Role="Provincia" Multiplicity="0..1" />
+    <End Type="ColegiosModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -41,6 +41,15 @@ namespace Web
                     Path = "~/Scripts/respond.min.js",
                     DebugPath = "~/Scripts/respond.js",
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition(
+               "include",
+               new ScriptResourceDefinition
+               {
+                   Path = "~/Scripts/includes.js",
+                   DebugPath = "~/Scripts/includes.js",
+               });
+
         }
     }
 }

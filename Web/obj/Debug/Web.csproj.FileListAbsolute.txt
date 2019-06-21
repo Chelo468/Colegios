@@ -50,7 +50,6 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\EntityFramework.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\NegocioLayer.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\GestoresLayer.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\ModelLayer.pdb
-C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\ModelLayer.dll.config
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\Utils.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\System.Web.Optimization.xml
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\Antlr3.Runtime.pdb
@@ -60,7 +59,6 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\NegocioLayer.pdb
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\es\System.Web.Optimization.resources.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
-C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache

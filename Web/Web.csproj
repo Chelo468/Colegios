@@ -98,15 +98,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\webfonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Estilos\BootstrapOk\bootstrap.css" />
+    <Content Include="Content\Estilos\BootstrapOk\bootstrap.min.css" />
     <Content Include="Content\Estilos\estilos.css" />
     <Content Include="Content\Estilos\main.css" />
+    <Content Include="Content\font-awesome\all.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Pages\Administracion\Index.aspx" />
     <Content Include="Pages\Sesion\Inicio.aspx" />
     <Content Include="Pages\Usuarios\registrar.aspx" />
+    <Content Include="Scripts\bootbox\bootbox.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.4.3.1.min.js" />
+    <Content Include="Scripts\bootstrap\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\bootstrap\popper.1.14.7.min.js" />
+    <Content Include="Scripts\includes.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

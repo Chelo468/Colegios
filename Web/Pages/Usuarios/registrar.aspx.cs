@@ -29,7 +29,7 @@ namespace Web.Pages.Usuarios
         private void cargarComboPais()
         {
             cboPais.DataSource = PaisGestor.getAll();
-            cboPais.DataValueField = "id_pais";
+            cboPais.DataValueField = "id";
             cboPais.DataTextField = "descripcion";
             cboPais.DataBind();
         }
@@ -37,7 +37,7 @@ namespace Web.Pages.Usuarios
         private void cargarComboProvincia(int id_pais)
         {
             cboProvincia.DataSource = ProvinciaGestor.getAllByIdPais(id_pais);
-            cboProvincia.DataValueField = "id_provincia";
+            cboProvincia.DataValueField = "id";
             cboProvincia.DataTextField = "descripcion";
             cboProvincia.DataBind();
         }
@@ -45,7 +45,7 @@ namespace Web.Pages.Usuarios
         private void cargarComboLocalidad(int id_provincia)
         {
             cboLocalidad.DataSource = LocalidadGestor.getAllByIdProvincia(id_provincia);
-            cboLocalidad.DataValueField = "id_localidad";
+            cboLocalidad.DataValueField = "id";
             cboLocalidad.DataTextField = "descripcion";
             cboLocalidad.DataBind();
         }
@@ -53,7 +53,7 @@ namespace Web.Pages.Usuarios
         private void cargarComboBarrio(int id_localidad)
         {
             cboBarrio.DataSource = BarrioGestor.getAllByIdLocalidad(id_localidad);
-            cboBarrio.DataValueField = "id_barrio";
+            cboBarrio.DataValueField = "id";
             cboBarrio.DataTextField = "descripcion";
             cboBarrio.DataBind();
         }
