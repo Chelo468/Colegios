@@ -61,4 +61,7 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\bin\es\Microsoft.AspNet.FriendlyUr
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Web\obj\Debug\Web.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Web\bin\ModelLayer.dll.config
+D:\Chelo\Personal\Proyectos\Colegios\Web\Web\obj\Debug\Web.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Web\obj\Debug\Web.csproj.CopyComplete

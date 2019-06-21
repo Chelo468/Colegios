@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+    <link href="@Url.Content("~/Styles/Estilos/main.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Styles/Estilos/BootstrapOk/bootstrap.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="box-login">
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.4.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/popper.1.14.7.min.js"></script>
+    <script src="~/Scripts/bootbox/bootbox.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Styles/Estilos/BootstrapOk/bootstrap.css" rel="stylesheet" />
+    <link href="~/Styles/Estilos/estilos.css" rel="stylesheet" />
+    <link href="~/Styles/Estilos/main.css" rel="stylesheet" />
+    <link href="~/Styles/font-awesome/all.css" rel="stylesheet" />
+    <link href="~/Styles/Site.css" rel="stylesheet" />
+    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="~/Styles/bootstrap.min.css" rel="stylesheet" />
+
+    <title>Sistema de Colegios</title>
+</head>
+<body id="body">
+    <div class="container-fluid">
+        <div class="row">
+            @if (Session["idUsuario"] != null)
+            {
+                <div class="col-izq sinpad menu-lateral">
+                    <div class="header-top-logo">
+                        <img src="~/Images/logo_encode.png" alt="Encode" />
+                    </div>
+                    <div class="header-user">
+                        <div class="avatar">
+                            <img src="~/Images/icon_user.png" alt="usuario" />
+                        </div>
+                        <div class="nombre-usuario">
+                            @if (Session["nombreUsuario"] != null && !string.IsNullOrEmpty(Session["nombreUsuario"].ToString()))
+                            {
+                                <p>@Session["nombreUsuario"].ToString()</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="botonera">
+
+                        @Html.Action("MostrarMenu", "Menu")
+
+
+                        @RenderSection("featured", required: false)
+                    </div>
+                    <div class="version">
+                        <p>Desarrollado por <span>Chelo</span></p>
+                        <span class="texto-version">Versión v1.0.0.0</span>
+                    </div>
+                </div>
+            }
+            <div class="col-der sinpad">
+                <div class="bg-central">
+                    <div class="header-central">
+                        <h1><span>Asistente Virtual</span></h1>
+                    </div>
+                    <div class="contenido-central">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.4.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/popper.1.14.7.min.js"></script>
+    <script src="~/Scripts/bootbox/bootbox.js"></script>
+</body>
+</html>

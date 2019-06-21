@@ -17,4 +17,7 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\bin\Debug\ModelLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\bin\Debug\Utils.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\NegocioLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\NegocioLayer.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\bin\Debug\ModelLayer.dll.config
+D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csproj.CopyComplete

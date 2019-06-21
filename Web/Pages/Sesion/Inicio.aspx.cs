@@ -25,7 +25,7 @@ namespace Web.Pages.Sesion
             pUser.password = txtPassword.Text;
             pUser.password = MD5Utilities.GetSHA1(pUser.password);
             
-            Usuario usuarioRegistrado = UsuarioGestor.iniciarSesion(pUser);
+            Usuario usuarioRegistrado = UsuarioGestor.validarUsuario(pUser);
 
             if(usuarioRegistrado != null && usuarioRegistrado.id_usuario > 0)
             {

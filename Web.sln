@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestoresLayer", "GestoresLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "ModelLayer\ModelLayer.csproj", "{CC3802C0-58DC-4824-9656-A9384D729449}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRazor", "WebRazor\WebRazor.csproj", "{243D321D-FC15-45D2-AF66-6C1EC2B44CB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CC3802C0-58DC-4824-9656-A9384D729449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3802C0-58DC-4824-9656-A9384D729449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3802C0-58DC-4824-9656-A9384D729449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243D321D-FC15-45D2-AF66-6C1EC2B44CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243D321D-FC15-45D2-AF66-6C1EC2B44CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243D321D-FC15-45D2-AF66-6C1EC2B44CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243D321D-FC15-45D2-AF66-6C1EC2B44CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
