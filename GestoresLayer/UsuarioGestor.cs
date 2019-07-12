@@ -38,17 +38,27 @@ namespace GestoresLayer
             }
         }
 
-        public static bool crear(Usuario usuario)
+        public static bool crear(Usuario usuario, ref string mensaje_error)
         {
             try
             {
                 ColegiosEntities contexto = new ColegiosEntities();
 
-                contexto.Usuario.Add(usuario);
+                Usuario user = contexto.Usuario.Where(x => x.nombre_usuario == usuario.nombre_usuario).FirstOrDefault();
 
-                contexto.SaveChanges();
+                if(user == null)
+                {
+                    contexto.Usuario.Add(usuario);
 
-                return true;
+                    contexto.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    mensaje_error = "El usuario ya existe.";
+                    return false;
+                }
             }
             catch (Exception ex)
             {

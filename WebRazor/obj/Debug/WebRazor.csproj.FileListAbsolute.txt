@@ -51,7 +51,6 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\roslyn\VBCSCompiler.exe
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\roslyn\VBCSCompiler.exe.config
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\GestoresLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Microsoft.Web.Infrastructure.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\ModelLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\System.Web.Helpers.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\System.Web.Mvc.dll
@@ -63,7 +62,6 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\EntityFramework.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\GestoresLayer.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\ModelLayer.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\ModelLayer.dll.config
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Utils.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\System.Web.Razor.xml
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\System.Web.Webpages.xml
@@ -78,9 +76,11 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\es\System.Web.Webpages.Dep
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\es\System.Web.Webpages.Razor.resources.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\es\System.Web.Helpers.resources.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\es\System.Web.Mvc.resources.dll
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csprojAssemblyReference.cache
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CoreCompileInputs.cache
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CopyComplete
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\EntityFramework.SqlServer.dll
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Microsoft.Web.Infrastructure.dll
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\ModelLayer.dll.config
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CoreCompileInputs.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CopyComplete

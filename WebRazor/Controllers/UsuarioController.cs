@@ -23,18 +23,24 @@ namespace WebRazor.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult registrarUsuario(Usuario usuario)
         {
             string mensaje = string.Empty;
             if(validarDatosUsuario(ref mensaje, usuario))
             {
                 usuario.password = MD5Utilities.GetSHA1(usuario.password);
-                if(UsuarioGestor.crear(usuario))
+                string mensaje_error = string.Empty;
+                if(UsuarioGestor.crear(usuario, ref mensaje_error)) 
                 {
                     return Json(new Respuesta { Error = false, Mensaje = "Usuario creado con éxito" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
+                    if(!string.IsNullOrEmpty(mensaje_error))
+                    {
+                        return Json(new Respuesta { Error = true, Mensaje = mensaje_error }, JsonRequestBehavior.AllowGet);
+                    }
                     return Json(new Respuesta { Error = true, Mensaje = "Ocurrió un error al registrar el usuario" }, JsonRequestBehavior.AllowGet);
                 }
             }

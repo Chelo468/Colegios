@@ -17,4 +17,3 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\EntityFramework.xm
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\EntityFramework.SqlServer.xml
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
