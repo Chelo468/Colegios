@@ -57,7 +57,7 @@
     }
 
     var usuario = { nombre: nombre, apellido: apellido, nombre_usuario: nombre_usuario, password: password, email: email, celular: celular };
-
+    
     $.ajax({
         url: RegistrarUsuarioParams.registrarUsuarioURL,
         data: usuario,
@@ -65,6 +65,17 @@
         success: function (data) {
 
                 console.log(data);
+                if (!data.Error)
+                {
+                    var textoVacio = '';
+                    $('#nombre').val(textoVacio);
+                    $('#apellido').val(textoVacio);
+                    $('#nombre_usuario').val(textoVacio);
+                    $('#password').val(textoVacio);
+                    $('#password_confirm').val(textoVacio);
+                    $('#email').val(textoVacio);
+                    $('#celular').val(textoVacio);
+                }
                 $('#lblRespuesta').text(data.Mensaje);
             
         },
@@ -72,6 +83,12 @@
             console.log(err);
         }
     });
+
+    return false;
     
 
+});
+
+$('#btnCancelar').click(function () {
+    location.href = RegistrarUsuarioParams.volverURL;
 });

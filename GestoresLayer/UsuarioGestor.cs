@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utils;
+using Utils.clasesSoporte;
 
 namespace GestoresLayer
 {
@@ -75,6 +76,22 @@ namespace GestoresLayer
                 throw ex;
             }
             
+        }
+
+        public static List<Permiso_Pagina> cargarPermisosPaginaPorUsuario(Usuario usuario)
+        {
+            List<Permiso_Pagina> permisos = new List<Permiso_Pagina>();
+
+            try
+            {
+                //permisos = oDALUsuario.cargarPermisosPaginaPorUsuario(usuario);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Loguear excepcion
+            }
+
+            return permisos;
         }
     }
 }

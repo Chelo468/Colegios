@@ -166,5 +166,9 @@ namespace Utils
             }
         }
 
+        internal void GuardarSMTPLog(string v, string token)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

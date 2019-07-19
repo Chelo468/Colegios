@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebRazor.Controllers
 {
-    public class InicioController : Controller
+    public class InicioController : GenericController
     {
         // GET: Inicio
         public ActionResult Index()

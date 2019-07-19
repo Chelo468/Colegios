@@ -10,7 +10,7 @@ using WebRazor.Models;
 
 namespace WebRazor.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : GenericController
     {
         // GET: Usuari
         public ActionResult Index()

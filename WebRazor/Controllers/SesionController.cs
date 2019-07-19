@@ -10,7 +10,7 @@ using WebRazor.Models;
 
 namespace WebRazor.Controllers
 {
-    public class SesionController : Controller
+    public class SesionController : GenericController
     {
         // GET: Sesion
         public ActionResult Index()
@@ -28,7 +28,9 @@ namespace WebRazor.Controllers
 
                 if (usuarioLogin != null && usuarioLogin.id_usuario > 0)
                 {
-                    Session["IdUsuario"] = usuarioLogin.id_usuario;
+                    //Session["idUsuario"] = usuarioLogin.id_usuario;
+                    //Session["nombreUsuario"] = usuarioLogin.nombre_usuario;
+                    Session["usuario"] = usuarioLogin;
                     return Json(new Respuesta { Error = false, Mensaje = "Sesión válida" }, JsonRequestBehavior.AllowGet);
                 }
 

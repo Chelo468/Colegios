@@ -200,6 +200,26 @@
           <Property Name="fecha_baja" Type="datetime" />
           <Property Name="usuario_baja" Type="int" />
         </EntityType>
+        <EntityType Name="Pagina">
+          <Key>
+            <PropertyRef Name="id_pagina" />
+          </Key>
+          <Property Name="id_pagina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="menu" Type="varchar" MaxLength="80" />
+          <Property Name="controlador" Type="varchar" MaxLength="80" />
+          <Property Name="accion" Type="varchar" MaxLength="255" />
+          <Property Name="orden" Type="int" />
+          <Property Name="icono" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pagina_Perfil">
+          <Key>
+            <PropertyRef Name="id_pagina" />
+            <PropertyRef Name="id_perfil" />
+          </Key>
+          <Property Name="id_pagina" Type="int" Nullable="false" />
+          <Property Name="id_perfil" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Pais">
           <Key>
             <PropertyRef Name="id" />
@@ -220,6 +240,14 @@
           <Property Name="usuario_alta" Type="int" />
           <Property Name="fecha_baja" Type="datetime" />
           <Property Name="usuario_baja" Type="int" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="id_perfil" />
+          </Key>
+          <Property Name="id_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
@@ -336,6 +364,7 @@
           <Property Name="usuario_alta" Type="int" />
           <Property Name="fecha_baja" Type="datetime" />
           <Property Name="usuario_baja" Type="int" />
+          <Property Name="id_perfil" Type="int" />
         </EntityType>
         <Association Name="FK_Alumno_Curso_Alumno">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -901,6 +930,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Pagina_Perfil_Pagina">
+          <End Role="Pagina" Type="Self.Pagina" Multiplicity="1" />
+          <End Role="Pagina_Perfil" Type="Self.Pagina_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pagina">
+              <PropertyRef Name="id_pagina" />
+            </Principal>
+            <Dependent Role="Pagina_Perfil">
+              <PropertyRef Name="id_pagina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pagina_Perfil_Perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+          <End Role="Pagina_Perfil" Type="Self.Pagina_Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="id_perfil" />
+            </Principal>
+            <Dependent Role="Pagina_Perfil">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Participante_Reunion_Reunion">
           <End Role="Reunion" Type="Self.Reunion" Multiplicity="1" />
           <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
@@ -1237,6 +1290,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Usuario_Perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="id_perfil" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuario_Provincia">
           <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -1290,8 +1355,11 @@
           <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materia_Curso" EntityType="Self.Materia_Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pagina" EntityType="Self.Pagina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pagina_Perfil" EntityType="Self.Pagina_Perfil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Participante_Reunion" EntityType="Self.Participante_Reunion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reunion" EntityType="Self.Reunion" Schema="dbo" store:Type="Tables" />
@@ -1489,6 +1557,14 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Materia_Curso" EntitySet="Materia_Curso" />
           </AssociationSet>
+          <AssociationSet Name="FK_Pagina_Perfil_Pagina" Association="Self.FK_Pagina_Perfil_Pagina">
+            <End Role="Pagina" EntitySet="Pagina" />
+            <End Role="Pagina_Perfil" EntitySet="Pagina_Perfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pagina_Perfil_Perfil" Association="Self.FK_Pagina_Perfil_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Pagina_Perfil" EntitySet="Pagina_Perfil" />
+          </AssociationSet>
           <AssociationSet Name="FK_Participante_Reunion_Reunion" Association="Self.FK_Participante_Reunion_Reunion">
             <End Role="Reunion" EntitySet="Reunion" />
             <End Role="Participante_Reunion" EntitySet="Participante_Reunion" />
@@ -1599,6 +1675,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Usuario_Pais" Association="Self.FK_Usuario_Pais">
             <End Role="Pais" EntitySet="Pais" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfil" Association="Self.FK_Usuario_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuario_Provincia" Association="Self.FK_Usuario_Provincia">
@@ -2060,6 +2140,8 @@
           <NavigationProperty Name="Localidad" Relationship="ColegiosModel.FK_Usuario_Localidad" FromRole="Usuario" ToRole="Localidad" />
           <NavigationProperty Name="Pais" Relationship="ColegiosModel.FK_Usuario_Pais" FromRole="Usuario" ToRole="Pais" />
           <NavigationProperty Name="Provincia" Relationship="ColegiosModel.FK_Usuario_Provincia" FromRole="Usuario" ToRole="Provincia" />
+          <Property Name="id_perfil" Type="Int32" />
+          <NavigationProperty Name="Perfil" Relationship="ColegiosModel.FK_Usuario_Perfil" FromRole="Usuario" ToRole="Perfil" />
         </EntityType>
         <Association Name="FK_Alumno_Curso_Alumno">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -3205,6 +3287,16 @@
             <End Role="Provincia" EntitySet="Provincia" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
+          <EntitySet Name="Pagina" EntityType="ColegiosModel.Pagina" />
+          <EntitySet Name="Perfil" EntityType="ColegiosModel.Perfil" />
+          <AssociationSet Name="FK_Usuario_Perfil" Association="ColegiosModel.FK_Usuario_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Pagina_Perfil" Association="ColegiosModel.Pagina_Perfil">
+            <End Role="Pagina" EntitySet="Pagina" />
+            <End Role="Perfil" EntitySet="Perfil" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Barrio">
           <Key>
@@ -3382,6 +3474,45 @@
               <PropertyRef Name="id_provincia" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pagina">
+          <Key>
+            <PropertyRef Name="id_pagina" />
+          </Key>
+          <Property Name="id_pagina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="controlador" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="accion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="orden" Type="Int32" />
+          <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Perfil" Relationship="ColegiosModel.Pagina_Perfil" FromRole="Pagina" ToRole="Perfil" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="id_perfil" />
+          </Key>
+          <Property Name="id_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="ColegiosModel.FK_Usuario_Perfil" FromRole="Perfil" ToRole="Usuario" />
+          <NavigationProperty Name="Pagina" Relationship="ColegiosModel.Pagina_Perfil" FromRole="Perfil" ToRole="Pagina" />
+        </EntityType>
+        <Association Name="FK_Usuario_Perfil">
+          <End Type="ColegiosModel.Perfil" Role="Perfil" Multiplicity="0..1" />
+          <End Type="ColegiosModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="id_perfil" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pagina_Perfil">
+          <End Type="ColegiosModel.Pagina" Role="Pagina" Multiplicity="*" />
+          <End Type="ColegiosModel.Perfil" Role="Perfil" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -3686,6 +3817,7 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="ColegiosModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
@@ -3741,6 +3873,36 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Pagina">
+            <EntityTypeMapping TypeName="ColegiosModel.Pagina">
+              <MappingFragment StoreEntitySet="Pagina">
+                <ScalarProperty Name="icono" ColumnName="icono" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="controlador" ColumnName="controlador" />
+                <ScalarProperty Name="menu" ColumnName="menu" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfil">
+            <EntityTypeMapping TypeName="ColegiosModel.Perfil">
+              <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Pagina_Perfil" TypeName="ColegiosModel.Pagina_Perfil" StoreEntitySet="Pagina_Perfil">
+            <EndProperty Name="Perfil">
+              <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+            </EndProperty>
+            <EndProperty Name="Pagina">
+              <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

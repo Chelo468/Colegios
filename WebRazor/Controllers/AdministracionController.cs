@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace WebRazor.Controllers
 {
-    public class AdministracionController : Controller
+    public class AdministracionController : GenericController
     {
         // GET: Administracion
         public ActionResult Index()

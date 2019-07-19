@@ -21,7 +21,7 @@
 <body id="body">
     <div class="container-fluid">
         <div class="row">
-            @if (Session["idUsuario"] != null)
+            @if (Session["usuario"] != null)
             {
                 <div class="col-izq sinpad menu-lateral">
                     <div class="header-top-logo">
@@ -32,9 +32,9 @@
                             <img src="~/Images/icon_user.png" alt="usuario" />
                         </div>
                         <div class="nombre-usuario">
-                            @if (Session["nombreUsuario"] != null && !string.IsNullOrEmpty(Session["nombreUsuario"].ToString()))
+                            @if (Session["usuario"]  != null && !string.IsNullOrEmpty(Session["usuario"].ToString()))
                             {
-                                <p>@Session["nombreUsuario"].ToString()</p>
+                                <p>@Session["usuario"].ToString()</p>
                             }
                         </div>
                     </div>

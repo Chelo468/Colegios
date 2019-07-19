@@ -112,10 +112,16 @@
     <Compile Include="Entities\Materia_Curso.cs">
       <DependentUpon>ColegioModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Pagina.cs">
+      <DependentUpon>ColegioModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Pais.cs">
       <DependentUpon>ColegioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Participante_Reunion.cs">
+      <DependentUpon>ColegioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Perfil.cs">
       <DependentUpon>ColegioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Plan.cs">
