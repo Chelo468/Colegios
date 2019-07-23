@@ -195,6 +195,26 @@
     <Property Name="fecha_baja" Type="datetime" />
     <Property Name="usuario_baja" Type="int" />
   </EntityType>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+    </Key>
+    <Property Name="id_pagina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="menu" Type="varchar" MaxLength="80" />
+    <Property Name="controlador" Type="varchar" MaxLength="80" />
+    <Property Name="accion" Type="varchar" MaxLength="255" />
+    <Property Name="orden" Type="int" />
+    <Property Name="icono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pagina_Rol">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_pagina" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Pais">
     <Key>
       <PropertyRef Name="id" />
@@ -896,6 +916,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pagina_Perfil_Pagina">
+    <End Role="Pagina" Type="Self.Pagina" Multiplicity="1" />
+    <End Role="Pagina_Rol" Type="Self.Pagina_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="Pagina_Rol">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagina_Rol_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Pagina_Rol" Type="Self.Pagina_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Pagina_Rol">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Participante_Reunion_Reunion">
     <End Role="Reunion" Type="Self.Reunion" Multiplicity="1" />
     <End Role="Participante_Reunion" Type="Self.Participante_Reunion" Multiplicity="*" />
@@ -1285,6 +1329,8 @@
     <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Materia_Curso" EntityType="Self.Materia_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagina" EntityType="Self.Pagina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagina_Rol" EntityType="Self.Pagina_Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Participante_Reunion" EntityType="Self.Participante_Reunion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
@@ -1483,6 +1529,14 @@
     <AssociationSet Name="FK_Materia_Curso_UsuarioBaja" Association="Self.FK_Materia_Curso_UsuarioBaja">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagina_Perfil_Pagina" Association="Self.FK_Pagina_Perfil_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="Pagina_Rol" EntitySet="Pagina_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagina_Rol_Rol" Association="Self.FK_Pagina_Rol_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Pagina_Rol" EntitySet="Pagina_Rol" />
     </AssociationSet>
     <AssociationSet Name="FK_Participante_Reunion_Reunion" Association="Self.FK_Participante_Reunion_Reunion">
       <End Role="Reunion" EntitySet="Reunion" />

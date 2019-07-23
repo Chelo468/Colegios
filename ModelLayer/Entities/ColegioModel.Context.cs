@@ -53,6 +53,5 @@ namespace ModelLayer.Entities
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<Provincia> Provincia { get; set; }
         public virtual DbSet<Pagina> Pagina { get; set; }
-        public virtual DbSet<Perfil> Perfil { get; set; }
     }
 }

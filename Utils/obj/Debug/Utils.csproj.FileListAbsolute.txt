@@ -7,4 +7,5 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\bin\Debug\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\bin\Debug\Utils.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache

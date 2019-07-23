@@ -80,7 +80,6 @@ namespace ModelLayer.Entities
         public Nullable<int> usuario_alta { get; set; }
         public Nullable<System.DateTime> fecha_baja { get; set; }
         public Nullable<int> usuario_baja { get; set; }
-        public Nullable<int> id_perfil { get; set; }
     
         public virtual ICollection<Alumno_Curso> Alumno_Curso { get; set; }
         public virtual ICollection<Alumno_Curso> Alumno_Curso1 { get; set; }
@@ -132,6 +131,5 @@ namespace ModelLayer.Entities
         public virtual Localidad Localidad { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Provincia Provincia { get; set; }
-        public virtual Perfil Perfil { get; set; }
     }
 }

@@ -30,15 +30,22 @@ namespace WebRazor.Controllers
                 {
                     //Session["idUsuario"] = usuarioLogin.id_usuario;
                     //Session["nombreUsuario"] = usuarioLogin.nombre_usuario;
-                    Session["usuario"] = usuarioLogin;
-                    return Json(new Respuesta { Error = false, Mensaje = "Sesión válida" }, JsonRequestBehavior.AllowGet);
+                    if(usuarioLogin.Rol_Usuario != null && usuarioLogin.Rol_Usuario.Count > 0)
+                    {
+                        Session["usuario"] = usuarioLogin;
+                        return Json(new Respuesta { Error = false, Mensaje = "Sesión válida" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new Respuesta { Error = true, Mensaje = "Usted no tiene un perfil asignado." }, JsonRequestBehavior.AllowGet);
+                    }
                 }
 
-                return Json(new Respuesta { Error = true, Mensaje = "Usuario y/o contraseña incorrectos" }, JsonRequestBehavior.AllowGet);
+                return Json(new Respuesta { Error = true, Mensaje = "Usuario y/o contraseña incorrectos." }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-                return Json(new Respuesta { Error = true, Mensaje = "Ocurrió un error inesperado" }, JsonRequestBehavior.AllowGet);
+                return Json(new Respuesta { Error = true, Mensaje = "Ocurrió un error inesperado." }, JsonRequestBehavior.AllowGet);
             }
             
         }

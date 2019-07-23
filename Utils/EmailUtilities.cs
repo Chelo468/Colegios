@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -27,8 +26,8 @@ namespace Utils
             //TODO Ver posibilidad de incluir el HTML del mensaje en un template que pueda ser obtenido como un recurso
             const string pSubject = "Bandeja de Documentos | Nueva cuenta de usuario";//Recibo Digital
 
-            string urlBDDO = ConfigurationManager.AppSettings["UrlWebService"];
-            urlBDDO = urlBDDO.Substring(0, urlBDDO.Length - 1);
+            //string urlBDDO = ConfigurationManager.AppSettings["UrlWebService"];
+            //urlBDDO = urlBDDO.Substring(0, urlBDDO.Length - 1);
 
             const string pBodyHtml =
                 @"<html>
@@ -41,7 +40,7 @@ namespace Utils
                         </body>
                   </html>";//para el acceso al recibo digital
 
-            SendEmail(pToEmail, pSubject, string.Format(pBodyHtml, pUserName, pUserPassword, urlBDDO), ref pMessage);
+            SendEmail(pToEmail, pSubject, string.Format(pBodyHtml, pUserName, pUserPassword), ref pMessage);
         }
 
         public static void SendResetPasswordEmail(string pToEmail, string pUserName, string pUserPassword, ref string pMessage)
@@ -49,8 +48,8 @@ namespace Utils
             //TODO Ver posibilidad de incluir el HTML del mensaje en un template que pueda ser obtenido como un recurso
             const string pSubject = "Bandeja de Documentos | Nueva cuenta de usuario";//Recibo Digital | 
 
-            string urlBDDO = ConfigurationManager.AppSettings["UrlWebService"];
-            urlBDDO = urlBDDO.Substring(0, urlBDDO.Length - 1);
+            //string urlBDDO = ConfigurationManager.AppSettings["UrlWebService"];
+            //urlBDDO = urlBDDO.Substring(0, urlBDDO.Length - 1);
 
             const string pBodyHtml =
                 @"<html>
@@ -65,7 +64,7 @@ namespace Utils
                         </body>
                   </html>";
 
-            SendEmail(pToEmail, pSubject, string.Format(pBodyHtml, pUserName, pUserPassword, urlBDDO), ref pMessage);
+            SendEmail(pToEmail, pSubject, string.Format(pBodyHtml, pUserName, pUserPassword), ref pMessage);
         }
 
         ///// <summary>
@@ -144,11 +143,11 @@ namespace Utils
         {
             try
             {
-                string pFromEmail = ConfigurationManager.AppSettings["EmailAccount"];
-                string pFromPassword = ConfigurationManager.AppSettings["EmailPassword"];
-                string pPort = ConfigurationManager.AppSettings["EmailPort"];
-                int pEnable = int.Parse(ConfigurationManager.AppSettings["EnableSSL"].ToString());
-                string pUserEmail = ConfigurationManager.AppSettings["EmailUser"];
+                string pFromEmail = ConfiguracionWeb.EmailAccount; //ConfigurationManager.AppSettings["EmailAccount"];
+                string pFromPassword = ConfiguracionWeb.EmailPassword;// ConfigurationManager.AppSettings["EmailPassword"];
+                string pPort = ConfiguracionWeb.EmailPort;//ConfigurationManager.AppSettings["EmailPort"];
+                int pEnable = int.Parse(ConfiguracionWeb.EnableSSL);// int.Parse(ConfigurationManager.AppSettings["EnableSSL"].ToString());
+                string pUserEmail = ConfiguracionWeb.EmailUser;//ConfigurationManager.AppSettings["EmailUser"];
                 bool b = false;
 
                 if (pEnable == 1)
@@ -163,7 +162,7 @@ namespace Utils
 
                 var smtp = new SmtpClient
                 {
-                    Host = ConfigurationManager.AppSettings["EmailSmtpServer"],
+                    Host = ConfiguracionWeb.EmailSmtpServer,//ConfigurationManager.AppSettings["EmailSmtpServer"]
                     Port = pEmailPort,
                     EnableSsl = b,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -198,11 +197,11 @@ namespace Utils
         {
             try
             {
-                string pFromEmail = ConfigurationManager.AppSettings["EmailAccount"];
-                string pFromPassword = ConfigurationManager.AppSettings["EmailPassword"];
-                string pPort = ConfigurationManager.AppSettings["EmailPort"];
-                int pEnable = int.Parse(ConfigurationManager.AppSettings["EnableSSL"].ToString());
-                string pUserEmail = ConfigurationManager.AppSettings["EmailUser"];
+                string pFromEmail = ConfiguracionWeb.EmailAccount;// ConfigurationManager.AppSettings["EmailAccount"];
+                string pFromPassword = ConfiguracionWeb.EmailPassword;// ConfigurationManager.AppSettings["EmailPassword"];
+                string pPort = ConfiguracionWeb.EmailPort;// ConfigurationManager.AppSettings["EmailPort"];
+                int pEnable = int.Parse(ConfiguracionWeb.EnableSSL);//ConfigurationManager.AppSettings["EnableSSL"].ToString()
+                string pUserEmail = ConfiguracionWeb.EmailUser;// ConfigurationManager.AppSettings["EmailUser"];
                 bool b = false;
 
                 if (pEnable == 1)
@@ -217,7 +216,7 @@ namespace Utils
 
                 var smtp = new SmtpClient
                 {
-                    Host = ConfigurationManager.AppSettings["EmailSmtpServer"],
+                    Host = ConfiguracionWeb.EmailSmtpServer,//ConfigurationManager.AppSettings["EmailSmtpServer"]
                     Port = pEmailPort,
                     EnableSsl = b,
                     DeliveryMethod = SmtpDeliveryMethod.Network,

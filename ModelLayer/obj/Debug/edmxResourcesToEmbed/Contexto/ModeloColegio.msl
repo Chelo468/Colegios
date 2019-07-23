@@ -353,5 +353,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Pagina">
+      <EntityTypeMapping TypeName="ColegiosModel.Pagina">
+        <MappingFragment StoreEntitySet="Pagina">
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="menu" ColumnName="menu" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Pagina_Rol" TypeName="ColegiosModel.Pagina_Rol" StoreEntitySet="Pagina_Rol">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+      </EndProperty>
+      <EndProperty Name="Pagina">
+        <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -13,5 +13,17 @@ namespace WebRazor.Controllers
         {
             return View();
         }
+
+        public ActionResult Home()
+        {
+            if (Session["usuario"] == null)
+            {
+                return Redirect("/Error/HomeError?mensaje=Sesion%20Caducada");
+            }
+            //if (Session["CurrentUser"] != null)
+            //    Session["CurrentUser"] = Session["CurrentUser"];
+            Session["PAGINA"] = 37;
+            return View();
+        }
     }
 }

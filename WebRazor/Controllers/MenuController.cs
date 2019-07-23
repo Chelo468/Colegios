@@ -44,14 +44,13 @@ namespace WebRazor.Controllers
                 //Response.Redirect("/");
 
                 SimpleLog lg = new SimpleLog();
-                UsuarioData usuario = Session["CurrentUser"] as UsuarioData;
-
+                Usuario usuario = Session["usuario"] as Usuario;
 
                 var lista = (dynamic)null;
 
                 try
                 {
-                    lista = usuario.Usuario_sucursal.ToList()[usuario.SucursalActual].Perfil.Pagina.OrderBy(x => x.orden).ToList();
+                    lista = usuario.Rol_Usuario.FirstOrDefault().Rol.Pagina.OrderBy(x => x.orden).ToList();//.Usuario_sucursal.ToList()[usuario.SucursalActual].Perfil.Pagina.OrderBy(x => x.orden).ToList();
                 }
                 catch (Exception exLinq)
                 {
@@ -63,44 +62,17 @@ namespace WebRazor.Controllers
                         str.Append("Inner Exception: " + exLinq.InnerException);
 
                     lg.GuardarWebLog("Error al Internar Cargar la Lista de Pagina Lista Error en LINQ." + str.ToString(), "Tesoreria", "PrincipalController", "Principal");
-                    EnviarMail("ALERTA TESORERIA", "Error al Internar Cargar la Lista de Pagina Lista Error en LINQ. \n " + exLinq.Message);
-                    try
-                    {
-                        lista = Service.retornarPaginasPorUsuario(usuario.id_usuario);
-
-                    }
-                    catch (Exception ex)
-                    {
-
-                        lg.GuardarWebLog("Error: " + ex.Message, "Tesoreria", "PrincipalController", "Principal");
-                        lg.GuardarWebLog("StackTrace: " + ex.StackTrace, "Tesoreria", "PrincipalController", "Principal");
-
-                        if (ex.InnerException != null)
-                            lg.GuardarWebLog("Inner Exception: " + ex.InnerException.Message, "Tesoreria", "PrincipalController", "Principal");
-
-                        Session.Clear();
-                        Session.RemoveAll();
-
-                    }
-
+                    
                 }
-
-                if (lista == null)
-                {
-                    lista = Service.retornarPaginasPorUsuario(usuario.id_usuario);
-                    EnviarMail("ALERTA TESORERIA", "Error al Internar Cargar la Lista de Pagina Lista Error en LINQ");
-                }
-
-
 
                 menu = new Menu();
 
-                foreach (PaginaData pagina in lista)
+                foreach (Pagina pagina in lista)
                 {
                     if (pagina.menu == "Principal")
                     {
                         Menu submenu = new Menu();
-                        foreach (PaginaData subpagina in lista)
+                        foreach (Pagina subpagina in lista)
                         {
                             if (subpagina.menu == pagina.nombre)
                             {
@@ -116,29 +88,21 @@ namespace WebRazor.Controllers
             }
             catch (Exception ex)
             {
-                SimpleLog lg = new SimpleLog();
-                if (ex.InnerException != null)
+                StringBuilder mensaje = new StringBuilder();
+                while (ex != null)
                 {
-                    if (ex.InnerException.InnerException != null)
-                    {
-                        lg.GuardarWebLog("Exepcion: " + ex.Message + " Inner: " + ex.InnerException.Message + " Inner.Inner: " + ex.InnerException.InnerException.Message, "Tesoreria.Controllers", "PrincipalController", "Principal");
-                        lg.GuardarWebLog("StackTrace: " + ex.StackTrace, "Tesoreria", "PrincipalController", "Principal");
-                    }
-                    else
-                    {
-                        lg.GuardarWebLog("Error: " + ex.Message + " Inner: " + ex.InnerException.Message, "Tesoreria", "PrincipalController", "Principal");
-                        lg.GuardarWebLog("StackTrace: " + ex.StackTrace, "Tesoreria", "PrincipalController", "Principal");
-                    }
+                    mensaje.AppendLine("Excepcion: " + ex.Message);
+                    mensaje.AppendLine("StackTrace: " + ex.StackTrace);
+
+                    ex = ex.InnerException;
                 }
-                else
+
+                SimpleLog.Instancia().GuardarWebLog(mensaje.ToString(), "WebRazor.Controllers", "MenuController", "MostrarMenu");
+                
+                if (Session["usuario"] == null)
                 {
-                    lg.GuardarWebLog("Error: " + ex.Message, "Tesoreria", "PrincipalController", "Principal");
-                    lg.GuardarWebLog("StackTrace: " + ex.StackTrace, "Tesoreria", "PrincipalController", "Principal");
-                }
-                if (Session["CurrentUser"] == null)
-                {
-                    bool mantenimiento = Convert.ToBoolean(ConfigurationManager.AppSettings["Mantenimiento"].ToString());
-                    if (mantenimiento)
+                    //bool mantenimiento = Convert.ToBoolean(ConfigurationManager.AppSettings["Mantenimiento"].ToString());
+                    if (ConfiguracionWeb.Mantenimiento)
                         return View("../Sesion/Trabajando");
                     return View("../Sesion/Home");
                 }
@@ -163,33 +127,7 @@ namespace WebRazor.Controllers
         {
             try
             {
-                string emisor = ConfigurationManager.AppSettings["MailAlertTesoreria"];
-
-                if (emisor != null || emisor.Trim() != "")
-                {
-                    string receptor = ConfigurationManager.AppSettings["MailReceptoresAlertTesoreria"];
-                    //La cadena "servidor" es el servidor de correo que enviará tu mensaje
-                    string servidor = "smtp.gmail.com";
-                    // Crea el mensaje estableciendo quién lo manda y quién lo recibe
-                    MailMessage mensaje = new MailMessage(
-                       emisor,
-                       receptor,
-                       asunto,
-                       texto);
-
-                    //Envía el mensaje.
-                    SmtpClient SmtpServer = new SmtpClient(servidor);
-                    //Añade credenciales si el servidor lo requiere.
-                    SmtpServer.Credentials = CredentialCache.DefaultNetworkCredentials;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(emisor, ConfigurationManager.AppSettings["PassAlertTesoreria"]);
-                    SmtpServer.Port = 587;
-                    SmtpServer.Host = "smtp.gmail.com";
-                    SmtpServer.EnableSsl = true;
-
-
-                    SmtpServer.Send(mensaje);
-
-                }
+                
             }
             catch (Exception)
             {

@@ -301,6 +301,7 @@
     <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Rol_Usuario" Relationship="Self.FK_Rol_Usuario_Rol" FromRole="Rol" ToRole="Rol_Usuario" />
+    <NavigationProperty Name="Pagina" Relationship="ColegiosModel.Pagina_Rol" FromRole="Rol" ToRole="Pagina" />
   </EntityType>
   <EntityType Name="Rol_Usuario">
     <Key>
@@ -1587,6 +1588,11 @@
       <End Role="Provincia" EntitySet="Provincia" />
       <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
+    <EntitySet Name="Pagina" EntityType="ColegiosModel.Pagina" />
+    <AssociationSet Name="Pagina_Rol" Association="ColegiosModel.Pagina_Rol">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Barrio">
     <Key>
@@ -1764,5 +1770,22 @@
         <PropertyRef Name="id_provincia" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+    </Key>
+    <Property Name="id_pagina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="menu" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="controlador" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="accion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="orden" Type="Int32" />
+    <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rol" Relationship="ColegiosModel.Pagina_Rol" FromRole="Pagina" ToRole="Rol" />
+  </EntityType>
+  <Association Name="Pagina_Rol">
+    <End Type="ColegiosModel.Pagina" Role="Pagina" Multiplicity="*" />
+    <End Type="ColegiosModel.Rol" Role="Rol" Multiplicity="*" />
   </Association>
 </Schema>

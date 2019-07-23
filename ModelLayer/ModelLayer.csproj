@@ -121,9 +121,6 @@
     <Compile Include="Entities\Participante_Reunion.cs">
       <DependentUpon>ColegioModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Perfil.cs">
-      <DependentUpon>ColegioModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Plan.cs">
       <DependentUpon>ColegioModel.tt</DependentUpon>
     </Compile>

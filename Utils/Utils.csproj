@@ -43,6 +43,7 @@
     <Compile Include="CertManager.cs" />
     <Compile Include="clasesSoporte\Permiso_Pagina.cs" />
     <Compile Include="ClaseTemplate.cs" />
+    <Compile Include="ConfiguracionWeb.cs" />
     <Compile Include="CriptoUtilAES.cs" />
     <Compile Include="EmailUtilities.cs" />
     <Compile Include="MD5Utilities.cs" />

@@ -18,11 +18,13 @@ namespace ModelLayer.Entities
         public Rol()
         {
             this.Rol_Usuario = new HashSet<Rol_Usuario>();
+            this.Pagina = new HashSet<Pagina>();
         }
     
         public int id_rol { get; set; }
         public string descripcion { get; set; }
     
         public virtual ICollection<Rol_Usuario> Rol_Usuario { get; set; }
+        public virtual ICollection<Pagina> Pagina { get; set; }
     }
 }

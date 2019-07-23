@@ -17,7 +17,7 @@ namespace ModelLayer.Entities
     {
         public Pagina()
         {
-            this.Perfil = new HashSet<Perfil>();
+            this.Rol = new HashSet<Rol>();
         }
     
         public int id_pagina { get; set; }
@@ -28,6 +28,6 @@ namespace ModelLayer.Entities
         public Nullable<int> orden { get; set; }
         public string icono { get; set; }
     
-        public virtual ICollection<Perfil> Perfil { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
     }
 }

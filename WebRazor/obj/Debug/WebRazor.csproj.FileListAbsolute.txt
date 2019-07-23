@@ -79,4 +79,8 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\es\System.Web.Mvc.resource
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\EntityFramework.SqlServer.dll
-D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csprojResolveAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\Microsoft.Web.Infrastructure.dll
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\bin\ModelLayer.dll.config
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CoreCompileInputs.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\WebRazor\obj\Debug\WebRazor.csproj.CopyComplete

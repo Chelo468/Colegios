@@ -122,6 +122,7 @@
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\SesionController.cs" />
     <Compile Include="Controllers\Soporte\GenericController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -129,6 +130,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -152,6 +154,8 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Inicio\Index.cshtml" />
     <Content Include="Views\Usuario\Registrar.cshtml" />
+    <Content Include="Views\Principal\Principal.cshtml" />
+    <Content Include="Views\Inicio\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
