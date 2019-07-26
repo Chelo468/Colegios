@@ -49,5 +49,23 @@ namespace WebRazor.Controllers
             }
             
         }
+
+        public string CerrarSesion()
+        {
+            Usuario usuario = new Usuario();
+            if (Session != null)
+                usuario = Session["usuario"] as Usuario;
+            else usuario = null;
+            if (usuario != null && usuario.id_usuario != 1)
+            {
+                //LogHistorialEventos("Usuario", "-Cierre de sesion '" + usuario.nombre_usuario + "'-", "USE", usuario.id_usuario);
+            }
+
+            Session["usuario"] = null;
+            Session["Pagina"] = null;
+
+            Session.Clear();
+            return "../Sesion/Index";
+        }
     }
 }

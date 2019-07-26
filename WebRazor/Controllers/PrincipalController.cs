@@ -23,7 +23,7 @@ namespace WebRazor.Controllers
             Menu menu = null;
 
             //IPaginaService PaginaService = new PaginaService();
-
+            Usuario usuario = Session["usuario"] as Usuario;
             try
             {
                 //if (Session["CurrentUser"] != null)
@@ -41,7 +41,7 @@ namespace WebRazor.Controllers
                 //Response.Redirect("/");
 
                 SimpleLog lg = new SimpleLog();
-                Usuario usuario = Session["usuario"] as Usuario;
+                
 
                 var lista = (dynamic)null;
 
@@ -110,7 +110,11 @@ namespace WebRazor.Controllers
                 Session["PAGINA"] = 37;
 
             if (menu != null)
-                return View(menu);
+            {
+                ViewBag.usuario = usuario;
+                ViewBag.menu = menu;
+                return View(new Tuple<Menu, Usuario>(menu, usuario));
+            }                
             else
             {
                 Session.Clear();

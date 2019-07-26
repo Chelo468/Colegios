@@ -10,10 +10,10 @@
     <title>LayoutLogin</title>
     
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/Estilos/main.css" rel="stylesheet" />
-    <link href="Content/Estilos/BootstrapOk/bootstrap.css" rel="stylesheet" />
-    <link href="Content/Site.css" rel="stylesheet" />
-    <link href="Content/font-awesome/all.css" rel="stylesheet" />
+    <link href="Styles/Estilos/main.css" rel="stylesheet" />
+    <link href="Styles/Estilos/BootstrapOk/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/Site.css" rel="stylesheet" />
+    <link href="Styles/font-awesome/all.css" rel="stylesheet" />
 
     <%--<script src="Scripts/bootstrap/jquery-3.3.1.slim.min.js"></script>--%>
     <%--<script src="Scripts/bootstrap/popper.1.14.7.min.js"></script>

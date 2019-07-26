@@ -15,7 +15,7 @@
 
     var usuario = { nombre_usuario: nombre_usuario, password: password }
 
-    console.log(usuario)
+    //console.log(usuario)
 
     $.ajax({
         url: SesionIndexParams.iniciarSesionURL,
@@ -39,4 +39,10 @@
 
 $('#btnRegistrar').click(function () {
     location.href = SesionIndexParams.registrarURL;
+});
+
+$(document).keypress(function (tecla) {
+    if (tecla.keyCode == 13) {
+        $('#btnLogin').click();
+    }
 });
