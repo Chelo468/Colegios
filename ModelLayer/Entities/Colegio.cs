@@ -22,6 +22,7 @@ namespace ModelLayer.Entities
             this.Contacto_Colegio = new HashSet<Contacto_Colegio>();
             this.Reunion = new HashSet<Reunion>();
             this.Turno = new HashSet<Turno>();
+            this.Codigo_Colegio = new HashSet<Codigo_Colegio>();
         }
     
         public int id_colegio { get; set; }
@@ -52,5 +53,6 @@ namespace ModelLayer.Entities
         public virtual Localidad Localidad { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Provincia Provincia { get; set; }
+        public virtual ICollection<Codigo_Colegio> Codigo_Colegio { get; set; }
     }
 }

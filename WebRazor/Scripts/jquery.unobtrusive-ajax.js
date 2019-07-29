@@ -57,6 +57,7 @@
         $(element.getAttribute("data-ajax-update")).each(function (i, update) {
             var top;
 
+
             switch (mode) {
                 case "BEFORE":
                     top = update.firstChild;
@@ -127,6 +128,7 @@
     }
 
     $(document).on("click", "a[data-ajax=true]", function (evt) {
+        
         evt.preventDefault();
         asyncRequest(this, {
             url: this.href,

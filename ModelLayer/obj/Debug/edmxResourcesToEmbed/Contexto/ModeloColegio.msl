@@ -374,5 +374,15 @@
         <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Codigo_Colegio">
+      <EntityTypeMapping TypeName="ColegiosModel.Codigo_Colegio">
+        <MappingFragment StoreEntitySet="Codigo_Colegio">
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="id_colegio" ColumnName="id_colegio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

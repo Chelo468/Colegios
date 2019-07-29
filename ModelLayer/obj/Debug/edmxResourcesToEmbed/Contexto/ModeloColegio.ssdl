@@ -62,6 +62,16 @@
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="id_localidad" Type="int" />
   </EntityType>
+  <EntityType Name="Codigo_Colegio">
+    <Key>
+      <PropertyRef Name="id_colegio" />
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_colegio" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="habilitado" Type="bit" />
+  </EntityType>
   <EntityType Name="Colegio">
     <Key>
       <PropertyRef Name="id_colegio" />
@@ -553,6 +563,30 @@
       </Principal>
       <Dependent Role="Barrio">
         <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Codigo_Colegio_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+    <End Role="Codigo_Colegio" Type="Self.Codigo_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Codigo_Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Codigo_Colegio_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Codigo_Colegio" Type="Self.Codigo_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Codigo_Colegio">
+        <PropertyRef Name="id_rol" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1318,6 +1352,7 @@
     <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Aula" EntityType="Self.Aula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Barrio" EntityType="Self.Barrio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Codigo_Colegio" EntityType="Self.Codigo_Colegio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio_Usuario" EntityType="Self.Colegio_Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contacto_Colegio" EntityType="Self.Contacto_Colegio" Schema="dbo" store:Type="Tables" />
@@ -1409,6 +1444,14 @@
     <AssociationSet Name="FK_Barrio_Localidad" Association="Self.FK_Barrio_Localidad">
       <End Role="Localidad" EntitySet="Localidad" />
       <End Role="Barrio" EntitySet="Barrio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Codigo_Colegio_Colegio" Association="Self.FK_Codigo_Colegio_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Codigo_Colegio" EntitySet="Codigo_Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Codigo_Colegio_Rol" Association="Self.FK_Codigo_Colegio_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Codigo_Colegio" EntitySet="Codigo_Colegio" />
     </AssociationSet>
     <AssociationSet Name="FK_Colegio_Barrio" Association="Self.FK_Colegio_Barrio">
       <End Role="Barrio" EntitySet="Barrio" />

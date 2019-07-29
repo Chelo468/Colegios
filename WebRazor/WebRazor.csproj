@@ -104,17 +104,31 @@
     <Content Include="Scripts\AppManager.js" />
     <Content Include="Scripts\bootbox\bootbox.js" />
     <Content Include="Scripts\bootstrap\bootstrap.4.3.1.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\bootstrap\popper.1.14.7.min.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\colorbox\i18n\jquery.colorbox-es.js" />
+    <Content Include="Scripts\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Scripts\colorbox\jquery.colorbox.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.datetimepicker.full.js" />
     <Content Include="Scripts\Tesoreria.js" />
+    <Content Include="Scripts\website\rol\index.js" />
+    <Content Include="Scripts\website\rol\verPaginas.js" />
     <Content Include="Scripts\website\sesion\index.js" />
     <Content Include="Scripts\website\usuario\registrar.js" />
     <Content Include="Styles\bootstrap.css" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\buttons.dataTables.min.css" />
+    <Content Include="Styles\colorbox\colorbox.css" />
+    <Content Include="Styles\colorbox\colorbox.default.css" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\border.png" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\controls.png" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\loading.gif" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\loading_background.png" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\overlay.png" />
+    <Content Include="Styles\colorbox\themes\default\images\colorbox\theme-default-overlay.png" />
     <Content Include="Styles\Estilos\BootstrapOk\bootstrap.css" />
     <Content Include="Styles\Estilos\BootstrapOk\bootstrap.min.css" />
     <Content Include="Styles\Estilos\estilos.css" />
@@ -189,7 +203,9 @@
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\Soporte\PaginaController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\Soporte\RolController.cs" />
     <Compile Include="Controllers\SesionController.cs" />
     <Compile Include="Controllers\Soporte\GenericController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -229,6 +245,10 @@
     <Content Include="Views\Principal\Principal.cshtml" />
     <Content Include="Views\Inicio\Home.cshtml" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\Rol\Modales\verPaginas.cshtml" />
+    <Content Include="Views\Administracion\codigosAdmin.cshtml" />
+    <Content Include="Views\Administracion\paginasIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,11 +258,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administracion\" />
     <Folder Include="Views\Barrio\" />
     <Folder Include="Views\Generic\" />
     <Folder Include="Views\Localidad\" />
     <Folder Include="Views\Menu\" />
+    <Folder Include="Views\Pagina\" />
     <Folder Include="Views\Pais\" />
     <Folder Include="Views\Provincia\" />
   </ItemGroup>

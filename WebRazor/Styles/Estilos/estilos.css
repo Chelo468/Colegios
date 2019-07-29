@@ -105,15 +105,16 @@ ul
     text-decoration:none;
     color:#fff;
 }
-.nav li i
-{
+.nav li i {
     color: #FFF;
+    font-size: 17px;
+    float: left;
+    margin-left: 20px;
 }
-.nav li 
-{
-	background-color:#60B1D0;
-	padding:8px 12px;
-	display:block;    
+.nav li {
+    background-color: #5e5d5d;
+    padding: 5px 12px;
+    display: block;
 }
 			
 .nav li:hover 
@@ -148,7 +149,7 @@ ul
 {
 	display:block;
     z-index: 999;        
-    background-color:#60B1D0;
+    background-color:#5e5d5d;
 }
 			
 .nav li ul li 

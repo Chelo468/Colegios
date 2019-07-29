@@ -21,6 +21,8 @@
     <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/jquery.dataTables_themeroller.css")" />
     <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/jquery.datetimepicker.css")" />
     <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/buttons.dataTables.min.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/colorbox/colorbox.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/colorbox/colorbox.default.css")" />
     <link rel="shortcut icon" href="/icono.ico" />
 </head>
 
@@ -32,50 +34,50 @@
 
 
             <div class="menu">
-                <div class="menu-nav">
-                    <ul class="nav" id="ulMenu">
+                <div class="">
+                    <ul class="nav nav-pils nav-stacked" id="ulMenu">
                         @{
-                                Menu menu = ViewBag.menu;
+                            Menu menu = ViewBag.menu;
 
-                                if (menu.MenuItems.Count > 0)
+                            if (menu.MenuItems.Count > 0)
+                            {
+                                foreach (var item in menu.MenuItems)
                                 {
-                                    foreach (var item in menu.MenuItems)
+                                    if (item.Items == null || item.Items.MenuItems.Count == 0)
                                     {
-                                        if (item.Items == null || item.Items.MenuItems.Count == 0)
+                                        if (item.Accion.ToLower() == "home")
                                         {
-                                            if (item.Accion.ToLower() == "home")
-                                            {
-                                                <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion + "/", item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
-                                            }
-                                            else
-                                            {
-                                                <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion, item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
-                                            }
-
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion + "/", item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
                                         }
                                         else
                                         {
-                                            <li>
-                                                @Html.Raw("<i class='" + item.Icono + "'></i> <a href='#'>" + item.Nombre + "</a>")
-                                                <ul>
-                                                    @foreach (var subitem in item.Items.MenuItems)
-                                                    {
-                                                        if (subitem.Accion.ToLower() == "home")
-                                                        {
-                                                            <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion + "/", subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
-                                                        }
-                                                        else
-                                                        {
-                                                            <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion, subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
-                                                        }
-
-                                                    }
-                                                </ul>
-                                            </li>
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion, item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
                                         }
+
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            @Html.Raw("<i class='" + item.Icono + "'></i> <a href='#'>" + item.Nombre + "</a>")
+                                            <ul>
+                                                @foreach (var subitem in item.Items.MenuItems)
+                                                {
+                                                    if (subitem.Accion.ToLower() == "home")
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion + "/", subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion, subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+
+                                                }
+                                            </ul>
+                                        </li>
                                     }
                                 }
                             }
+                        }
                         @*@if (Model.Item1.MenuItems.Count > 0)
                             {
                                 foreach (var item in Model.Item1.MenuItems)
@@ -149,13 +151,15 @@
                     }
                     else
                     {
+
                         switch ((int?)pagina)
                         {
                             case null: @Html.Action("HomeError", "Error", new { p = "1745678" }); break;
-                        case 37: @Html.Action("Home", "Inicio", new { p = "1745678" }); break;
+                        case 11: @Html.Action("Index", "Rol", new { p = "1745678" }); break;
+                    case 37: @Html.Action("Home", "Inicio", new { p = "1745678" }); break;
 
-                }
             }
+        }
                 }
 
             </div>
@@ -169,14 +173,16 @@
 
         </div>*@
 
-
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/Tesoreria.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/AppManager.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.datetimepicker.full.js")"></script>
-
+    <script type="text/javascript" src="@Url.Content("~/Scripts/colorbox/jquery.colorbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/colorbox/i18n/jquery.colorbox-es.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootbox/bootbox.js")"></script>
     <script type="text/javascript">
 
     function fixHeight() {

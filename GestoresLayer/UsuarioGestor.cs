@@ -39,7 +39,7 @@ namespace GestoresLayer
             }
         }
 
-        public static bool crear(Usuario usuario, ref string mensaje_error)
+        public static bool crear(Usuario usuario, Codigo_Colegio codigoColegioObj, ref string mensaje_error)
         {
             try
             {
@@ -50,8 +50,18 @@ namespace GestoresLayer
                 if(user == null)
                 {
                     contexto.Usuario.Add(usuario);
+                    
+                    Rol_Usuario rolUsuario = new Rol_Usuario();
 
-                    contexto.SaveChanges();
+                    rolUsuario.Rol = codigoColegioObj.Rol;
+                    rolUsuario.Usuario = usuario;
+                    rolUsuario.fecha_alta = DateTime.Now;
+
+                    usuario.Colegio.Add(codigoColegioObj.Colegio);
+
+                    contexto.Rol_Usuario.Add(rolUsuario);
+
+                    contexto.SaveChanges();    
 
                     return true;
                 }

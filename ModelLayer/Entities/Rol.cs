@@ -19,6 +19,7 @@ namespace ModelLayer.Entities
         {
             this.Rol_Usuario = new HashSet<Rol_Usuario>();
             this.Pagina = new HashSet<Pagina>();
+            this.Codigo_Colegio = new HashSet<Codigo_Colegio>();
         }
     
         public int id_rol { get; set; }
@@ -26,5 +27,6 @@ namespace ModelLayer.Entities
     
         public virtual ICollection<Rol_Usuario> Rol_Usuario { get; set; }
         public virtual ICollection<Pagina> Pagina { get; set; }
+        public virtual ICollection<Codigo_Colegio> Codigo_Colegio { get; set; }
     }
 }

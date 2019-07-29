@@ -51,5 +51,42 @@ namespace WebRazor.Controllers
             return Json(barrios, JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region codigos colegios
+
+        public ActionResult codigosAdmin()
+        {
+            Usuario usuarioActual = currentUser();
+
+            Colegio colegio = usuarioActual.Colegio.FirstOrDefault();
+
+            if(colegio != null)
+            {
+                List<Codigo_Colegio> codigos = ColegioGestor.codigosGetAllByColegio(colegio);
+                List<Rol> roles = RolGestor.getAll();
+
+                SelectList listaRoles = new SelectList(roles, "id_rol","descripcion");
+                
+                ViewBag.roles = listaRoles;
+                return View(codigos);
+            }
+            else
+            {
+                return Redirect("/Error/HomeError?mensaje=Sesion%20Caducada");
+            }
+        }
+
+        #endregion
+
+        #region paginas
+
+        public ActionResult paginasIndex()
+        {
+            List<Pagina> paginas = PaginaGestor.getAll();
+            
+            return View(paginas);
+        }
+
+        #endregion
     }
 }

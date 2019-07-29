@@ -1,0 +1,49 @@
+﻿@using ModelLayer.Entities
+
+@model List<Pagina>
+
+<div class="form">
+
+    <div class="pull-left valign"> <i class="fa fa-home"></i> <b>Páginas</b> </div>
+
+    <div class="form-body" style="text-align: center;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td style="display: none">Id Página</td>
+                    <td>Nombre</td>
+                    <td>Menú</td>
+                    <td>Controlador</td>
+                    <td>Acción</td>
+                    <td>Orden</td>
+                    <td>Icono</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pagina in Model)
+                {
+                <tr onclick="clickGrdPaginas(this)">
+                    <td style="display: none">@pagina.id_pagina</td>
+                    <td>@pagina.nombre</td>
+                    <td>@pagina.menu</td>
+                    <td>@pagina.controlador</td>
+                    <td>@pagina.accion</td>
+                    <td>@pagina.orden</td>
+                    <td>@pagina.icono</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div style="z-index: 1000">
+        <button>+</button>
+    </div>
+    
+
+</div>
+
+<script>
+    function clickGrdPaginas(row) {
+        console.log(row)
+    }
+</script>
