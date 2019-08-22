@@ -32,8 +32,19 @@ namespace WebRazor.Controllers
                     //Session["nombreUsuario"] = usuarioLogin.nombre_usuario;
                     if(usuarioLogin.Rol_Usuario != null && usuarioLogin.Rol_Usuario.Count > 0)
                     {
-                        Session["usuario"] = usuarioLogin;
-                        return Json(new Respuesta { Error = false, Mensaje = "Sesión válida" }, JsonRequestBehavior.AllowGet);
+                        if (usuarioLogin.Colegio.Count == 0)
+                        {
+                            return Json(new Respuesta { Error = true, Mensaje = "No tiene un colegio asignado" }, JsonRequestBehavior.AllowGet);
+                        }
+                        else if (usuarioLogin.Colegio.Count == 1)
+                        {
+                            Session["usuario"] = usuarioLogin;
+                            return Json(new Respuesta { Error = false, Mensaje = "Sesión válida" }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            return Json(new Respuesta { Error = true, Mensaje = "Seleccionar Colegio" }, JsonRequestBehavior.AllowGet);
+                        }
                     }
                     else
                     {

@@ -1,0 +1,45 @@
+﻿@using ModelLayer.Entities
+
+@model List<Usuario>
+
+
+<div class="form">
+
+    <div class="pull-left valign"> <i class="fa fa-home"></i> <b>INICIO</b> </div>
+
+
+    <div class="form-body" style="text-align: center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                    <td>Nombre Usuario</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rol in Model)
+                {
+                    <tr>
+                        <td>@rol.nombre</td>
+                        <td>@rol.apellido</td>
+                        <td>@rol.nombre_usuario</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+        var UsuarioIndexParams = {
+            paginasRolURL: "@Url.Action("verPaginas", "Usuario")"
+        };
+
+</script>
+
+<script src="~/Scripts/website/usuario/index.js"></script>

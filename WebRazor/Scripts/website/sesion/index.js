@@ -23,7 +23,14 @@
         success: function (data) {
 
             if (data.Error) {
-                $('#lblErrorLogin').text(data.Mensaje);
+
+                if (data.Mensaje == 'Seleccionar Colegio') {
+                    bootbox.alert("asd")
+                }
+                else {
+                    $('#lblErrorLogin').text(data.Mensaje);
+                }
+                
             }
             else {
                 location.href = SesionIndexParams.inicioURL;

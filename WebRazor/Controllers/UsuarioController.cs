@@ -15,7 +15,8 @@ namespace WebRazor.Controllers
         // GET: Usuari
         public ActionResult Index()
         {
-            return View();
+            List<Usuario> usuarios = UsuarioGestor.getUsuariosByColegio(currentUser().Colegio.First());
+            return View(usuarios);
         }
 
         public ActionResult Registrar()

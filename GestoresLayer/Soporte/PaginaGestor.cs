@@ -136,6 +136,51 @@ namespace GestoresLayer
             return quitado;
         }
 
+        public static bool crear(Pagina nuevaPagina, ref string mensajeError)
+        {
+            try
+            {
+                ColegiosEntities contexto = new ColegiosEntities();
+
+                if(contexto.Pagina.Where(x => x.accion == nuevaPagina.accion && x.controlador == nuevaPagina.controlador).FirstOrDefault() != null)
+                {
+                    mensajeError = "Ya existe una página con ese controlador y acción";
+                    return false;
+                }
+
+                if(contexto.Pagina.Where(x => x.menu == nuevaPagina.menu && x.nombre == nuevaPagina.nombre).FirstOrDefault() != null)
+                {
+                    mensajeError = "Ya existe una página en ese menú con ese nombre";
+                    return false;
+                }
+
+                if(contexto.Pagina.Where(x => x.menu == nuevaPagina.menu && x.orden == nuevaPagina.orden).FirstOrDefault() != null)
+                {
+                    mensajeError = "Ya existe una página en ese menú con ese orden";
+                    return false;
+                }
+
+                contexto.Pagina.Add(nuevaPagina);
+
+                contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                StringBuilder mensaje = new StringBuilder();
+
+                while (ex != null)
+                {
+                    mensaje.AppendLine(ex.Message);
+                    ex = ex.InnerException;
+                }
+
+                SimpleLog.Instancia().GuardarGestorLog(mensaje.ToString(), "GestoresLayer", "PaginaGestor", "crear");
+                throw ex;
+            }
+        }
+
         public static List<Pagina> getAll()
         {
             try

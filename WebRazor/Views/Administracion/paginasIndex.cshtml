@@ -22,28 +22,35 @@
             <tbody>
                 @foreach (var pagina in Model)
                 {
-                <tr onclick="clickGrdPaginas(this)">
-                    <td style="display: none">@pagina.id_pagina</td>
-                    <td>@pagina.nombre</td>
-                    <td>@pagina.menu</td>
-                    <td>@pagina.controlador</td>
-                    <td>@pagina.accion</td>
-                    <td>@pagina.orden</td>
-                    <td>@pagina.icono</td>
-                </tr>
+                    <tr>
+                        <td style="display: none">@pagina.id_pagina</td>
+                        <td>@pagina.nombre</td>
+                        <td>@pagina.menu</td>
+                        <td>@pagina.controlador</td>
+                        <td>@pagina.accion</td>
+                        <td>@pagina.orden</td>
+                        <td>@pagina.icono</td>
+                    </tr>
                 }
             </tbody>
         </table>
+
+        <div style="z-index: 100; position: fixed; bottom: 5.5em; right: 2.5em">
+            <button class="btn btn-success" onclick="newPagina()" style="border-radius: 50%">+</button>
+        </div>
     </div>
-    <div style="z-index: 1000">
-        <button>+</button>
-    </div>
-    
+
+
 
 </div>
 
-<script>
-    function clickGrdPaginas(row) {
-        console.log(row)
-    }
+<script type="text/javascript">
+
+        var PaginasIndexParams = {
+            nuevaPaginaURL: "@Url.Action("nuevaPaginaModal", "Administracion")"
+        };
+
 </script>
+
+
+<script src="~/Scripts/website/administracion/paginasIndex.js"></script>

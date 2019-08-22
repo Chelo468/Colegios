@@ -1,0 +1,47 @@
+﻿@using ModelLayer.Entities;
+
+@model Pagina
+<div class="contenido-central">
+    <form>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @placeholder = "Nombre" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.menu, new { @class = "form-control", @placeholder = "Menú" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.controlador, new { @class = "form-control", @placeholder = "Controlador" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.accion, new { @class = "form-control", @placeholder = "Acción" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.orden, new { @class = "form-control", @placeholder = "Orden" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.icono, new { @class = "form-control", @placeholder = "Icono" })
+        </div>
+        <div class="form-group">
+            <button id="btnCrear" type="button" onclick="crearPagina()" class="btn btn-primario" style="margin-left: 55px">Crear</button>
+            <button id="btnCancelar" type="button" onclick="cerrarModal()" class="btn btn-secundario pull-right" style="margin-right: 55px">Cancelar</button>
+        </div>
+
+        <div class="form-group">
+            <label id="lblRespuesta"></label>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+
+        var nuevaPaginaParams = {
+            crearURL: "@Url.Action("crearPagina", "Administracion")"
+        };
+
+</script>
+
+<script src="~/Scripts/website/administracion/modales/nuevaPagina.js"></script>

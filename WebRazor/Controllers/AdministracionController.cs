@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebRazor.Models;
 
 namespace WebRazor.Controllers
 {
@@ -85,6 +86,43 @@ namespace WebRazor.Controllers
             List<Pagina> paginas = PaginaGestor.getAll();
             
             return View(paginas);
+        }
+
+        public ActionResult nuevaPaginaModal()
+        {
+            return View("Modales/nuevaPagina");
+        }
+
+        public JsonResult crearPagina(Pagina nuevaPagina)
+        {
+            bool error = true;
+            string mensaje = "Ocurrió un error al crear la página";
+
+            string mensajeError = string.Empty;
+
+            try
+            {
+                if (PaginaGestor.crear(nuevaPagina, ref mensajeError))
+                {
+                    error = false;
+                    mensaje = "Página creada con éxito";
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(mensajeError))
+                    {
+                        mensaje = mensajeError;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+
+            return Json(new Respuesta { Error = error, Mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

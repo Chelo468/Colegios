@@ -39,6 +39,39 @@ namespace GestoresLayer
             }
         }
 
+        public static List<Usuario> getUsuariosByColegio(Colegio colegio)
+        {
+            try
+            {
+                ColegiosEntities contexto = new ColegiosEntities();
+
+                List<Colegio_Usuario> colegiosUsuarios = contexto.Colegio_Usuario.Where(x => x.id_colegio == colegio.id_colegio).ToList();
+
+                List<Usuario> usuarios = new List<Usuario>();
+
+                foreach (var colegioUsuario in colegiosUsuarios)
+                {
+                    usuarios.Add(colegioUsuario.Usuario);
+                }
+
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                StringBuilder mensaje = new StringBuilder();
+
+                while (ex != null)
+                {
+                    mensaje.Append(ex.Message);
+
+                    ex = ex.InnerException;
+                }
+
+                SimpleLog.Instancia().GuardarDataLog(mensaje.ToString(), "GestoresLayer", "UsuarioGestor", "getUsuariosByColegio");
+                throw;
+            }
+        }
+
         public static bool crear(Usuario usuario, Codigo_Colegio codigoColegioObj, ref string mensaje_error)
         {
             try
