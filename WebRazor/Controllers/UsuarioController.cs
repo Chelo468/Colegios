@@ -10,12 +10,13 @@ using WebRazor.Models;
 
 namespace WebRazor.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : GenericController
     {
         // GET: Usuari
         public ActionResult Index()
         {
-            return View();
+            List<Usuario> usuarios = UsuarioGestor.getUsuariosByColegio(currentUser().Colegio.First());
+            return View(usuarios);
         }
 
         public ActionResult Registrar()
@@ -23,18 +24,30 @@ namespace WebRazor.Controllers
             return View();
         }
 
-        public JsonResult registrarUsuario(Usuario usuario)
+        [HttpPost]
+        public JsonResult registrarUsuario(Usuario usuario, string codigo_colegio)
         {
             string mensaje = string.Empty;
-            if(validarDatosUsuario(ref mensaje, usuario))
+            if(validarDatosUsuario(ref mensaje, usuario, codigo_colegio))
             {
+                Codigo_Colegio codigoColegioObj = new Codigo_Colegio();
+                if(!validarCodigoColegio(codigo_colegio, ref codigoColegioObj))
+                {
+                    return Json(new Respuesta { Error = true, Mensaje = "El código del colegio no es válido." }, JsonRequestBehavior.AllowGet);
+                }
+
                 usuario.password = MD5Utilities.GetSHA1(usuario.password);
-                if(UsuarioGestor.crear(usuario))
+                string mensaje_error = string.Empty;
+                if(UsuarioGestor.crear(usuario, codigoColegioObj, ref mensaje_error)) 
                 {
                     return Json(new Respuesta { Error = false, Mensaje = "Usuario creado con éxito" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
+                    if(!string.IsNullOrEmpty(mensaje_error))
+                    {
+                        return Json(new Respuesta { Error = true, Mensaje = mensaje_error }, JsonRequestBehavior.AllowGet);
+                    }
                     return Json(new Respuesta { Error = true, Mensaje = "Ocurrió un error al registrar el usuario" }, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -42,7 +55,14 @@ namespace WebRazor.Controllers
             return Json(new Respuesta { Error = true, Mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
-        private bool validarDatosUsuario(ref string mensaje, Usuario pUser)
+        private bool validarCodigoColegio(string codigo_colegio, ref Codigo_Colegio codigoColegioObj)
+        {
+            codigoColegioObj = ColegioGestor.getByCodigo(codigo_colegio);
+
+            return codigoColegioObj != null;
+        }
+
+        private bool validarDatosUsuario(ref string mensaje, Usuario pUser, string codigo_colegio)
         {
             if (string.IsNullOrEmpty(pUser.nombre_usuario))
             {
@@ -77,6 +97,12 @@ namespace WebRazor.Controllers
             if (string.IsNullOrEmpty(pUser.celular))
             {
                 mensaje = "El celular no puede estar vacío";
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(codigo_colegio))
+            {
+                mensaje = "El código del colegio no puede estar vacío";
                 return false;
             }
 

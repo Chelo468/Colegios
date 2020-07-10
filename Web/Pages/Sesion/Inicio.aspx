@@ -6,8 +6,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Sistema de Colegios</title>
-    <link href="../../Content/Estilos/main.css" rel="stylesheet" />
-    <link href="../../Content/Estilos/BootstrapOk/bootstrap.css" rel="stylesheet" />
+    <link href="../../Styles/Estilos/main.css" rel="stylesheet" />
+    <link href="../../Styles/Estilos/BootstrapOk/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div class="box-login">

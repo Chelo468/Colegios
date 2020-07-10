@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColegioGestor.cs" />
+    <Compile Include="Soporte\PaginaGestor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Soporte\RolGestor.cs" />
     <Compile Include="Soporte\BarrioGestor.cs" />
     <Compile Include="Soporte\LocalidadGestor.cs" />
     <Compile Include="Soporte\PaisGestor.cs" />

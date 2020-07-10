@@ -1,0 +1,42 @@
+﻿@using ModelLayer.Entities
+
+@model List<Rol>
+
+<div class="form">
+
+    <div class="pull-left valign"> <i class="fa fa-home"></i> <b>INICIO</b> </div>
+
+
+    <div class="form-body" style="text-align: center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rol in Model)
+                {
+                    <tr>
+                        <td>@rol.descripcion</td>
+                        <td><button class="btn btn-primario" onclick="verPaginas('@rol.id_rol', '@rol.descripcion');">Páginas</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+    <script type="text/javascript">
+
+        var RolIndexParams = {
+            paginasRolURL: "@Url.Action("verPaginas", "Rol")"
+        };
+
+    </script>
+
+    <script src="~/Scripts/website/rol/index.js"></script>

@@ -62,6 +62,16 @@
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="id_localidad" Type="int" />
   </EntityType>
+  <EntityType Name="Codigo_Colegio">
+    <Key>
+      <PropertyRef Name="id_colegio" />
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_colegio" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="habilitado" Type="bit" />
+  </EntityType>
   <EntityType Name="Colegio">
     <Key>
       <PropertyRef Name="id_colegio" />
@@ -194,6 +204,26 @@
     <Property Name="usuario_alta" Type="int" />
     <Property Name="fecha_baja" Type="datetime" />
     <Property Name="usuario_baja" Type="int" />
+  </EntityType>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+    </Key>
+    <Property Name="id_pagina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="menu" Type="varchar" MaxLength="80" />
+    <Property Name="controlador" Type="varchar" MaxLength="80" />
+    <Property Name="accion" Type="varchar" MaxLength="255" />
+    <Property Name="orden" Type="int" />
+    <Property Name="icono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pagina_Rol">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_pagina" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pais">
     <Key>
@@ -533,6 +563,30 @@
       </Principal>
       <Dependent Role="Barrio">
         <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Codigo_Colegio_Colegio">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+    <End Role="Codigo_Colegio" Type="Self.Codigo_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Principal>
+      <Dependent Role="Codigo_Colegio">
+        <PropertyRef Name="id_colegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Codigo_Colegio_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Codigo_Colegio" Type="Self.Codigo_Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Codigo_Colegio">
+        <PropertyRef Name="id_rol" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -893,6 +947,30 @@
       </Principal>
       <Dependent Role="Materia_Curso">
         <PropertyRef Name="usuario_baja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagina_Perfil_Pagina">
+    <End Role="Pagina" Type="Self.Pagina" Multiplicity="1" />
+    <End Role="Pagina_Rol" Type="Self.Pagina_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="Pagina_Rol">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagina_Rol_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Pagina_Rol" Type="Self.Pagina_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Pagina_Rol">
+        <PropertyRef Name="id_rol" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1274,6 +1352,7 @@
     <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Aula" EntityType="Self.Aula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Barrio" EntityType="Self.Barrio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Codigo_Colegio" EntityType="Self.Codigo_Colegio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio_Usuario" EntityType="Self.Colegio_Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contacto_Colegio" EntityType="Self.Contacto_Colegio" Schema="dbo" store:Type="Tables" />
@@ -1285,6 +1364,8 @@
     <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Materia_Curso" EntityType="Self.Materia_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagina" EntityType="Self.Pagina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagina_Rol" EntityType="Self.Pagina_Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Participante_Reunion" EntityType="Self.Participante_Reunion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
@@ -1363,6 +1444,14 @@
     <AssociationSet Name="FK_Barrio_Localidad" Association="Self.FK_Barrio_Localidad">
       <End Role="Localidad" EntitySet="Localidad" />
       <End Role="Barrio" EntitySet="Barrio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Codigo_Colegio_Colegio" Association="Self.FK_Codigo_Colegio_Colegio">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Codigo_Colegio" EntitySet="Codigo_Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Codigo_Colegio_Rol" Association="Self.FK_Codigo_Colegio_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Codigo_Colegio" EntitySet="Codigo_Colegio" />
     </AssociationSet>
     <AssociationSet Name="FK_Colegio_Barrio" Association="Self.FK_Colegio_Barrio">
       <End Role="Barrio" EntitySet="Barrio" />
@@ -1483,6 +1572,14 @@
     <AssociationSet Name="FK_Materia_Curso_UsuarioBaja" Association="Self.FK_Materia_Curso_UsuarioBaja">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Materia_Curso" EntitySet="Materia_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagina_Perfil_Pagina" Association="Self.FK_Pagina_Perfil_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="Pagina_Rol" EntitySet="Pagina_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagina_Rol_Rol" Association="Self.FK_Pagina_Rol_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Pagina_Rol" EntitySet="Pagina_Rol" />
     </AssociationSet>
     <AssociationSet Name="FK_Participante_Reunion_Reunion" Association="Self.FK_Participante_Reunion_Reunion">
       <End Role="Reunion" EntitySet="Reunion" />

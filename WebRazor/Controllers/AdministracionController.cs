@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebRazor.Models;
 
 namespace WebRazor.Controllers
 {
-    public class AdministracionController : Controller
+    public class AdministracionController : GenericController
     {
         // GET: Administracion
         public ActionResult Index()
@@ -50,6 +51,80 @@ namespace WebRazor.Controllers
 
             return Json(barrios, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region codigos colegios
+
+        public ActionResult codigosAdmin()
+        {
+            Usuario usuarioActual = currentUser();
+
+            Colegio colegio = usuarioActual.Colegio.FirstOrDefault();
+
+            if(colegio != null)
+            {
+                List<Codigo_Colegio> codigos = ColegioGestor.codigosGetAllByColegio(colegio);
+                List<Rol> roles = RolGestor.getAll();
+
+                SelectList listaRoles = new SelectList(roles, "id_rol","descripcion");
+                
+                ViewBag.roles = listaRoles;
+                return View(codigos);
+            }
+            else
+            {
+                return Redirect("/Error/HomeError?mensaje=Sesion%20Caducada");
+            }
+        }
+
+        #endregion
+
+        #region paginas
+
+        public ActionResult paginasIndex()
+        {
+            List<Pagina> paginas = PaginaGestor.getAll();
+            
+            return View(paginas);
+        }
+
+        public ActionResult nuevaPaginaModal()
+        {
+            return View("Modales/nuevaPagina");
+        }
+
+        public JsonResult crearPagina(Pagina nuevaPagina)
+        {
+            bool error = true;
+            string mensaje = "Ocurrió un error al crear la página";
+
+            string mensajeError = string.Empty;
+
+            try
+            {
+                if (PaginaGestor.crear(nuevaPagina, ref mensajeError))
+                {
+                    error = false;
+                    mensaje = "Página creada con éxito";
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(mensajeError))
+                    {
+                        mensaje = mensajeError;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+
+            return Json(new Respuesta { Error = error, Mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
     }
 }

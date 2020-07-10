@@ -1,0 +1,35 @@
+﻿/* Main Styles */
+#colorbox, #cboxOverlay, #cboxWrapper { z-index: 1000 }
+#cboxClose { border: 0; top:10px; right:10px; }
+#cboxLoadedContent{ margin-top:50px; margin-left:10px; }
+#cboxTitle {
+	background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #A7A7A7;
+    color: #000;
+    font-family: Century Gothic,Helvetica,Arial,Sans-serif;
+    font-size: 18px;
+    left: 0;
+    margin: 0;
+    padding: 10px 0 5px 20px;
+    position: absolute;
+    text-align: left;
+    top: 4px;
+    bottom: auto;
+    width: 100%;
+}
+
+/* Images */
+#cboxOverlay {background:url(themes/default/images/colorbox/theme-default-overlay.png) repeat 0 0;}
+#cboxTopLeft{ background:url(themes/default/images/colorbox/controls.png) no-repeat -101px 0;}
+#cboxTopRight{ background:url(themes/default/images/colorbox/controls.png) no-repeat -130px 0;}
+#cboxBottomLeft{ background:url(themes/default/images/colorbox/controls.png) no-repeat -101px -29px;}
+#cboxBottomRight{ background:url(themes/default/images/colorbox/controls.png) no-repeat -130px -29px;}
+#cboxMiddleLeft{ background:url(themes/default/images/colorbox/controls.png) left top repeat-y;}
+#cboxMiddleRight{ background:url(themes/default/images/colorbox/controls.png) right top repeat-y;}
+#cboxTopCenter{ background:url(themes/default/images/colorbox/border.png) 0 0 repeat-x;}
+#cboxBottomCenter{ background:url(themes/default/images/colorbox/border.png) 0 -29px repeat-x;}
+#cboxLoadingOverlay{ background:url(themes/default/images/colorbox/loading_background.png) no-repeat center center;}
+#cboxLoadingGraphic{ background:url(themes/default/images/colorbox/loading.gif) no-repeat center center;}
+#cboxPrevious{ background:url(themes/default/images/colorbox/controls.png) no-repeat -75px 0;}
+#cboxNext{ background:url(themes/default/images/colorbox/controls.png) no-repeat -50px 0;}
+#cboxClose{ background:url(themes/default/images/colorbox/controls.png) no-repeat -25px 0;}

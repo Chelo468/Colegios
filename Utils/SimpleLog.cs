@@ -40,7 +40,7 @@ namespace Utils
         /// <returns></returns>
         public void GuardarWebLog(string message, string nameSpace, string clase, string metodo)
         {
-            string filePath = ConfigurationManager.AppSettings["WebLogFilePath"];
+            string filePath = ConfiguracionWeb.WebLogFilePath;// ConfigurationManager.AppSettings["WebLogFilePath"];
 
             if (!string.IsNullOrEmpty(filePath))
             {
@@ -65,7 +65,7 @@ namespace Utils
         /// <returns></returns>
         public void GuardarDataLog(string message, string nameSpace, string clase, string metodo)
         {
-            string filePath = ConfigurationManager.AppSettings["DataLogFilePath"];
+            string filePath = ConfiguracionWeb.DataLogFilePath; //ConfigurationManager.AppSettings["DataLogFilePath"];
 
             if (!string.IsNullOrEmpty(filePath))
             {
@@ -90,7 +90,7 @@ namespace Utils
         /// <returns></returns>
         public void GuardarGlobalLog(string message, string nameSpace, string clase, string metodo)
         {
-            string filePath = ConfigurationManager.AppSettings["GlobalLogFilePath"];
+            string filePath = ConfiguracionWeb.GlobalLogFilePath;// ConfigurationManager.AppSettings["GlobalLogFilePath"];
 
             if (!string.IsNullOrEmpty(filePath))
             {
@@ -111,7 +111,7 @@ namespace Utils
 
         public void guardarParamsLog(string metodo, string parametros, int id_usuario)
         {
-            string filePath = ConfigurationManager.AppSettings["ParamsLogFilePath"];
+            string filePath = ConfiguracionWeb.ParamsLogFilePath;// ConfigurationManager.AppSettings["ParamsLogFilePath"];
 
             if (!string.IsNullOrEmpty(filePath))
             {                
@@ -130,7 +130,7 @@ namespace Utils
 
         public void GuardarGestorLog(string message, string nameSpace, string clase, string metodo)
         {
-            string filePath = ConfigurationManager.AppSettings["GestorLogFilePath"];
+            string filePath = ConfiguracionWeb.GestorLogFilePath;// ConfigurationManager.AppSettings["GestorLogFilePath"];
 
             if (!string.IsNullOrEmpty(filePath))
             {
@@ -166,5 +166,9 @@ namespace Utils
             }
         }
 
+        internal void GuardarSMTPLog(string v, string token)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

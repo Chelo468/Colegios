@@ -1,0 +1,65 @@
+﻿@using ModelLayer.Entities
+
+@model Tuple<List<Pagina>, List<Pagina>, int>
+@* Model1 todas las paginas *@
+@* Model2 paginas a las que el usuario tiene acceso *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                Pagina
+            </td>
+            <td>
+                Menu
+            </td>
+            <td>
+                Acción
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pagina in Model.Item1)
+        {
+            if (Model.Item2.Where(x => x.id_pagina == pagina.id_pagina).FirstOrDefault() != null)
+            {
+                <tr>
+                    <td>
+                        @pagina.nombre
+                    </td>
+                    <td>
+                        @pagina.menu
+                    </td>
+                    <td>
+                        <button id="@pagina.id_pagina" class="btn btn-eliminar" onclick="quitarPagina('@Model.Item3', '@pagina.id_pagina')">Quitar</button>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @pagina.nombre
+                    </td>
+                    <td>
+                        @pagina.menu
+                    </td>
+                    <td>
+                        <button id="@pagina.id_pagina" class="btn btn-success" onclick="agregarPagina('@Model.Item3', '@pagina.id_pagina')">Agregar</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+
+        var RolPaginasParams = {
+            agregarPaginaRolURL: "@Url.Action("agregarPagina", "Rol")",
+            quitarPaginaRolURL: "@Url.Action("quitarPagina", "Rol")"
+        };
+
+</script>
+
+<script src="~/Scripts/website/rol/verPaginas.js"></script>

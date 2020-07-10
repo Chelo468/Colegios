@@ -1,0 +1,30 @@
+﻿@using ModelLayer.Entities
+
+@model List<Codigo_Colegio>
+
+<div class="form">
+
+    <div class="pull-left valign"> <i class="fa fa-home"></i> <b>CODIGOS DE AUTORIZACION</b> </div>
+
+
+    <div class="form-body" style="text-align: center; padding-top: 12%">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Código</td>
+                    <td>Rol</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var codigo in Model)
+                {
+                    <tr>
+                        <td>@codigo.codigo</td>
+                        <td>@Html.DropDownList("cboRol", (SelectList)ViewBag.roles,"Roles", new { @class = "form-control" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,294 @@
+﻿@using ModelLayer.Entities;
+@using WebRazor.Models;
+@using System.Linq;
+@model Tuple<Menu, Usuario>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Tu Cole Online</title>
+
+
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/Estilos/estilos.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/bootstrap.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/Estilos/main.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/modal.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/font-awesome.min.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/jquery.dataTables.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/jquery.dataTables_themeroller.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/jquery.datetimepicker.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/buttons.dataTables.min.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/colorbox/colorbox.css")" />
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Styles/colorbox/colorbox.default.css")" />
+    <link rel="shortcut icon" href="/icono.ico" />
+</head>
+
+<body>
+    <div class="row bg-color-sn">
+        <div class="col-izq">
+            <img src="~/Images/logoxs.png" style="width: 100%" alt="logoXs" />
+            <div class="clearfix"></div>
+
+
+            <div class="menu">
+                <div class="">
+                    <ul class="nav nav-pils nav-stacked" id="ulMenu">
+                        @{
+                            Menu menu = ViewBag.menu;
+
+                            if (menu.MenuItems.Count > 0)
+                            {
+                                foreach (var item in menu.MenuItems)
+                                {
+                                    if (item.Items == null || item.Items.MenuItems.Count == 0)
+                                    {
+                                        if (item.Accion.ToLower() == "home")
+                                        {
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion + "/", item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
+                                        }
+                                        else
+                                        {
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion, item.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            @Html.Raw("<i class='" + item.Icono + "'></i> <a href='#'>" + item.Nombre + "</a>")
+                                            <ul>
+                                                @foreach (var subitem in item.Items.MenuItems)
+                                                {
+                                                    if (subitem.Accion.ToLower() == "home")
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion + "/", subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion, subitem.Controlador, new { }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                        @*@if (Model.Item1.MenuItems.Count > 0)
+                            {
+                                foreach (var item in Model.Item1.MenuItems)
+                                {
+                                    if (item.Items == null || item.Items.MenuItems.Count == 0)
+                                    {
+                                        if (item.Accion.ToLower() == "home")
+                                        {
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion + "/", item.Controlador, new { p = "1745678" }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
+                                        }
+                                        else
+                                        {
+                                            <li> @Html.Raw("<i class='" + item.Icono + "'></i>") @Ajax.ActionLink(item.Nombre, item.Accion, item.Controlador, new { p = "1745678" }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" })  </li>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            @Html.Raw("<i class='" + item.Icono + "'></i> <a href='#'>" + item.Nombre + "</a>")
+                                            <ul>
+                                                @foreach (var subitem in item.Items.MenuItems)
+                                                {
+                                                    if (subitem.Accion.ToLower() == "home")
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion + "/", subitem.Controlador, new { p = "1745678" }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li> <i class="fa fa-check"></i> @Ajax.ActionLink(subitem.Nombre, subitem.Accion, subitem.Controlador, new { p = "1745678" }, new AjaxOptions { UpdateTargetId = "container", OnBegin = "$('.nav li ul').hide()", OnComplete = "$('.nav li ul').show(); fixHeight()" }) </li>
+                                                    }
+
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            }*@
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-der">
+            <div class="user-menu" style="cursor: pointer; padding:0px;text-align: center; background: #37474f; color: white">
+
+                <h3 style="float:left; "><b>Tu Cole Online</b></h3>
+                @Html.Label(((Usuario)ViewBag.usuario).apellido + " " + ((Usuario)ViewBag.usuario).nombre, new { @style = "color: white; float:right;cursor: pointer" })
+                <i class="fa fa-user fa-3x" style="color: white;float: right"></i>
+                <div style="color: #37474f; float:right; width: 9%;position: fixed;margin-left: 66%;z-index: 1000;">
+
+                    <div style="text-align: right">
+                        <div class="user-submenu" style="display:none">
+                            <div class="submenu-item" onclick="editMisDatos();"> <i class="fa fa-user fa-lg"></i> Mis datos </div>
+                            <div class="submenu-item" onclick="app.ui.SesionSubmit('../Sesion/CerrarSesion', {})"> <i class="fa fa-user-times fa-lg"></i> Cerrar Sesión </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="container">
+                @{var pagina = Session["PAGINA"]; }
+
+                @{if (Session["usuario"] == null)
+                    {
+                        @Html.Action("HomeError", "Error", new { p = "1745678" });
+                    }
+                    else
+                    {
+
+                        switch ((int?)pagina)
+                        {
+                            case null: @Html.Action("HomeError", "Error", new { p = "1745678" }); break;
+                            case 11: @Html.Action("Index", "Rol", new { p = "1745678" }); break;
+                            case 37: @Html.Action("Home", "Inicio", new { p = "1745678" }); break;
+
+                        }
+                    }
+                }
+
+            </div>
+
+            <div class="footer-xs bg-color-gr">
+                <div class="font-sans font-sm text-center color-blank"> Tu Cole Online v1.0.0.0 |  Desarrollado por <a>Chelo</a>  | @DateTime.Now.Year</div>
+            </div>
+        </div>
+    </div>
+    @*<div class="header-xs bg-color-ow">
+
+        </div>*@
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Tesoreria.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/AppManager.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.datetimepicker.full.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/colorbox/jquery.colorbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/colorbox/i18n/jquery.colorbox-es.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootbox/bootbox.js")"></script>
+    <script type="text/javascript">
+
+    function fixHeight() {
+        //var formBody = $('.form-body');
+
+        //console.log(formBody);
+
+        //formBody.style.minHeight = $(window).height() - 215 + 'px';
+        //$('.form-body').css('min-height', ($(window).height() - 215) + 'px');
+    };
+
+    var cierreDeSesion;
+
+    $(document).ready(function () {
+        var sesionTimeout = @Session.Timeout -1;
+        var timeOut = sesionTimeout * 1000 * 60;
+        cierreDeSesion = setTimeout('logout()', timeOut);
+
+        @*var usuario = '@{ Model.Item2.apellido.ToString(); }';
+
+        console.log(usuario);
+
+        $('#lblUsuario').text(usuario);*@
+
+
+    });
+
+    function logout() {
+        app.ui.SesionSubmit('../Sesion/CerrarSesion', {})
+    };
+
+    function editMisDatos() {
+        btns = [{ text: 'Guardar', cssClass: 'btn-modal-primary', result: 'GUARDAR' }];
+        misDatosModal = app.ui.Modal.load(
+            '../Sesion/MisDatosModal',
+            {},
+            btns,
+            { width: 660, height: 450, title: 'MIS DATOS' },
+            function (result) {
+                if (result == 'GUARDAR') {
+                    param = {};
+                    param['Apellido'] = $('#txtApellido').val();
+                    param['Nombre'] = $('#txtNombre').val();
+                    param['Nombre Usuario'] = $('#txtNombreUsuario').val();
+                    param['Clave Usuario'] = $('#txtClaveActual').val();
+                    param['Clave Nueva'] = $('#txtClaveNueva').val();
+                    var data = { 'data': JSON.stringify(param) };
+                    app.ui.BeforeSend();
+                    $.ajax({
+                        url: '../Sesion/GuardarCambiosUsuario',
+                        data: data,
+                        type: 'POST',
+                        dataType: 'text',
+                        success: function (dato) {
+                            if (dato == "INCOMPLETO") {
+                                app.ui.DelayMessage('Datos incompletos. Verifique los datos ingresados', 'message-info');
+                            }
+                            if (dato == "COINCIDE") {
+                                app.ui.DelayMessage('La Clave Actual no coincide con la ingresada', 'message-info');
+                            }
+                            if (dato == "EXISTE") {
+                                app.ui.DelayMessage('Ya existe un Usuario con la misma Clave', 'message-info');
+                            }
+                            if (dato == "ACTUALIZADO") {
+                                app.ui.DelayMessage('La operación se ejecutó con éxito.', 'message-succes');
+                                app.ui.modalManager.removeModal(misDatosModal)
+                                window.location = '../Principal/Principal';
+                            }
+                            app.ui.AfterSend();
+                        },
+                        error: function (dato, status, jqXHR) {
+                            app.ui.DelayMessage('Ha ocurrido un error inesperado.', 'message-error');
+                            app.ui.AfterSend();
+                        }
+                    });
+                }
+            },
+            null,
+            null
+        );
+        app.ui.modalManager.addModal(misDatosModal);
+        };
+
+        var mostrarMenu = false;
+
+        $('.user-menu').click(
+            function () {
+                //    $('.user-submenu').show();
+                //}, function () {
+                //    $('.user-submenu').hide();
+                //}
+                mostrarMenu = !mostrarMenu;
+
+                if (mostrarMenu) {
+                    $('.user-submenu').show();
+                } else {
+                    $('.user-submenu').hide();
+                }
+
+
+            });
+
+
+
+    </script>
+
+</body>
+</html>
+

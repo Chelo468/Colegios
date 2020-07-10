@@ -17,4 +17,15 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\EntityFramework.xm
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\bin\Debug\EntityFramework.SqlServer.xml
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\ModelLayer\obj\Debug\ModelLayer.csproj.CopyComplete
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.dll.config
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.dll
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\ModelLayer.pdb
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.dll
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.xml
+D:\Proyectos\Colegios\ModelLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.dll
+D:\Proyectos\Colegios\ModelLayer\obj\Debug\ModelLayer.pdb

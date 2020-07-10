@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="62ae211785fc4cfe8e3001fc41e11c7e" Name="Diagram1">
+      <Diagram DiagramId="62ae211785fc4cfe8e3001fc41e11c7e" Name="Diagram1" ZoomLevel="28" ShowGrid="false">
         <EntityTypeShape EntityType="ColegiosModel.Alumno_Curso" Width="1.5" PointX="25.5" PointY="31.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Alumno_Examen" Width="1.5" PointX="30.75" PointY="31.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ColegiosModel.Asistencia" Width="1.5" PointX="28.5" PointY="31.875" IsExpanded="true" />
@@ -95,10 +95,10 @@
         <AssociationConnector Association="ColegiosModel.FK_Turno_UsuarioBaja" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_UsuarioAlta" ManuallyRouted="false" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_UsuarioBaja" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ColegiosModel.Barrio" Width="1.5" PointX="7.5" PointY="31.625" />
-        <EntityTypeShape EntityType="ColegiosModel.Localidad" Width="1.5" PointX="5.25" PointY="31.5" />
-        <EntityTypeShape EntityType="ColegiosModel.Pais" Width="1.5" PointX="0.75" PointY="31.75" />
-        <EntityTypeShape EntityType="ColegiosModel.Provincia" Width="1.5" PointX="3" PointY="31.5" />
+        <EntityTypeShape EntityType="ColegiosModel.Barrio" Width="1.5" PointX="7.5" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegiosModel.Localidad" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegiosModel.Pais" Width="1.5" PointX="0.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColegiosModel.Provincia" Width="1.5" PointX="3" PointY="31.5" IsExpanded="true" />
         <AssociationConnector Association="ColegiosModel.FK_Barrio_Localidad" />
         <AssociationConnector Association="ColegiosModel.FK_Colegio_Barrio" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_Barrio" />
@@ -110,6 +110,11 @@
         <AssociationConnector Association="ColegiosModel.FK_Provincia_Pais" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_Pais" />
         <AssociationConnector Association="ColegiosModel.FK_Usuario_Provincia" />
+        <EntityTypeShape EntityType="ColegiosModel.Pagina" Width="1.5" PointX="16.5" PointY="40.5" />
+        <AssociationConnector Association="ColegiosModel.Pagina_Rol" />
+        <EntityTypeShape EntityType="ColegiosModel.Codigo_Colegio" Width="1.5" PointX="21" PointY="35.625" />
+        <AssociationConnector Association="ColegiosModel.FK_Codigo_Colegio_Colegio" />
+        <AssociationConnector Association="ColegiosModel.FK_Codigo_Colegio_Rol" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

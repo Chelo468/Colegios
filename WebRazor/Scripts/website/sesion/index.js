@@ -15,7 +15,7 @@
 
     var usuario = { nombre_usuario: nombre_usuario, password: password }
 
-    console.log(usuario)
+    //console.log(usuario)
 
     $.ajax({
         url: SesionIndexParams.iniciarSesionURL,
@@ -23,7 +23,14 @@
         success: function (data) {
 
             if (data.Error) {
-                $('#lblErrorLogin').text(data.Mensaje);
+
+                if (data.Mensaje == 'Seleccionar Colegio') {
+                    bootbox.alert("asd")
+                }
+                else {
+                    $('#lblErrorLogin').text(data.Mensaje);
+                }
+                
             }
             else {
                 location.href = SesionIndexParams.inicioURL;
@@ -39,4 +46,10 @@
 
 $('#btnRegistrar').click(function () {
     location.href = SesionIndexParams.registrarURL;
+});
+
+$(document).keypress(function (tecla) {
+    if (tecla.keyCode == 13) {
+        $('#btnLogin').click();
+    }
 });

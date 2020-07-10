@@ -1,0 +1,56 @@
+﻿@using ModelLayer.Entities
+
+@model List<Pagina>
+
+<div class="form">
+
+    <div class="pull-left valign"> <i class="fa fa-home"></i> <b>Páginas</b> </div>
+
+    <div class="form-body" style="text-align: center;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td style="display: none">Id Página</td>
+                    <td>Nombre</td>
+                    <td>Menú</td>
+                    <td>Controlador</td>
+                    <td>Acción</td>
+                    <td>Orden</td>
+                    <td>Icono</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pagina in Model)
+                {
+                    <tr>
+                        <td style="display: none">@pagina.id_pagina</td>
+                        <td>@pagina.nombre</td>
+                        <td>@pagina.menu</td>
+                        <td>@pagina.controlador</td>
+                        <td>@pagina.accion</td>
+                        <td>@pagina.orden</td>
+                        <td>@pagina.icono</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div style="z-index: 100; position: fixed; bottom: 5.5em; right: 2.5em">
+            <button class="btn btn-success" onclick="newPagina()" style="border-radius: 50%">+</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script type="text/javascript">
+
+        var PaginasIndexParams = {
+            nuevaPaginaURL: "@Url.Action("nuevaPaginaModal", "Administracion")"
+        };
+
+</script>
+
+
+<script src="~/Scripts/website/administracion/paginasIndex.js"></script>

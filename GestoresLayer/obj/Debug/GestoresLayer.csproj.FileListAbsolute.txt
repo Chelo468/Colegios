@@ -25,3 +25,15 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\bin\Debug\ModelLayer.dll.
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csprojAssemblyReference.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csproj.CoreCompileInputs.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\GestoresLayer\obj\Debug\GestoresLayer.csproj.CopyComplete
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\GestoresLayer.dll
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\GestoresLayer.pdb
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\EntityFramework.dll
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\ModelLayer.dll
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\NegocioLayer.dll
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\Utils.dll
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\ModelLayer.pdb
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\NegocioLayer.pdb
+D:\Proyectos\Colegios\GestoresLayer\bin\Debug\Utils.pdb
+D:\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.csprojResolveAssemblyReference.cache
+D:\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.dll
+D:\Proyectos\Colegios\GestoresLayer\obj\Debug\GestoresLayer.pdb

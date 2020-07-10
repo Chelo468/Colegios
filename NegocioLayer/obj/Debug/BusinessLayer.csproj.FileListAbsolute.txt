@@ -21,3 +21,13 @@ D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\bin\Debug\ModelLayer.dll.c
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\NegocioLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\NegocioLayer.dll
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\NegocioLayer.pdb
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\EntityFramework.dll
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\ModelLayer.dll
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\Utils.dll
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\ModelLayer.pdb
+D:\Proyectos\Colegios\NegocioLayer\bin\Debug\Utils.pdb
+D:\Proyectos\Colegios\NegocioLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Proyectos\Colegios\NegocioLayer\obj\Debug\NegocioLayer.dll
+D:\Proyectos\Colegios\NegocioLayer\obj\Debug\NegocioLayer.pdb

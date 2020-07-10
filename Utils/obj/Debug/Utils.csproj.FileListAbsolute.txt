@@ -5,7 +5,11 @@ C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.dll
 C:\Users\Chelo\Desktop\Proyectos\Colegios\Utils\obj\Debug\Utils.pdb
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\bin\Debug\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\bin\Debug\Utils.pdb
-D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csprojAssemblyReference.cache
-D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.dll
 D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.pdb
+D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csprojAssemblyReference.cache
+D:\Chelo\Personal\Proyectos\Colegios\Web\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
+D:\Proyectos\Colegios\Utils\bin\Debug\Utils.dll
+D:\Proyectos\Colegios\Utils\bin\Debug\Utils.pdb
+D:\Proyectos\Colegios\Utils\obj\Debug\Utils.dll
+D:\Proyectos\Colegios\Utils\obj\Debug\Utils.pdb
